@@ -15,6 +15,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "s-js-utils": [
+        "dist/s-js-utils"
+      ],
+      "s-js-utils/*": [
+        "dist/s-js-utils/*"
+      ]
+    }
   }
 }
