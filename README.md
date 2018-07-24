@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/simontonsoftware/s-js-utils.svg?branch=master)](https://travis-ci.org/simontonsoftware/s-js-utils) [![Coverage Status](https://coveralls.io/repos/github/simontonsoftware/s-js-utils/badge.svg?branch=master)](https://coveralls.io/github/simontonsoftware/s-js-utils?branch=master)
+
 # SJsUtilsPlatform
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
