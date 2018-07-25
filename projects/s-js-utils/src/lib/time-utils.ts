@@ -1,7 +1,7 @@
 import { last, ObjectWith } from 'micro-dash';
 import { roundToMultipleOf } from './misc-utils';
 
-export const enum TimeUnit {
+export enum TimeUnit {
   Nanoseconds = 'ns',
   Microseconds = 'μs',
   Milliseconds = 'ms',
