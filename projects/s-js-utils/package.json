@@ -5,6 +5,6 @@
   "license": "MIT",
   "repository": "simontonsoftware/s-js-utils",
   "peerDependencies": {
-    "micro-dash": ">=3.6.0 <4.0.0"
+    "micro-dash": ">=4.0.0 <5.0.0"
   }
 }
