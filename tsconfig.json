@@ -10,20 +10,11 @@
     "experimentalDecorators": true,
     "target": "es5",
     "strict": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "paths": {
-      "s-js-utils": [
-        "dist/s-js-utils"
-      ],
-      "s-js-utils/*": [
-        "dist/s-js-utils/*"
-      ]
+      "s-js-utils": ["dist/s-js-utils"],
+      "s-js-utils/*": ["dist/s-js-utils/*"]
     }
   }
 }
