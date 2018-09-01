@@ -473,7 +473,7 @@ describe("time-utils", () => {
 
       it("allows all the aliases", () => {
         testAliases(
-          TimeUnit.Millenia,
+          TimeUnit.Millennia,
           10,
           TimeUnit.Centuries,
           "cent",
@@ -515,12 +515,12 @@ describe("time-utils", () => {
         testAliases(
           TimeUnit.Centuries,
           1 / 10,
-          TimeUnit.Millenia,
+          TimeUnit.Millennia,
           "mil",
-          "Millenium",
-          "Millenia",
-          "millenium",
-          "millenia",
+          "Millennium",
+          "Millennia",
+          "millennium",
+          "millennia",
         );
       });
     });
