@@ -913,6 +913,9 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-function">
 			<a href="index.html#roundtomultipleof" class="tsd-kind-icon">round<wbr>ToMultiple<wbr>Of</a>
 		</li>
+		<li class=" tsd-kind-function">
+			<a href="index.html#sleep" class="tsd-kind-icon">sleep</a>
+		</li>
 	</ul>
 </nav>
 <div class="container container-main">
@@ -952,6 +955,7 @@ img { max-width: 100%; }
 							<li class="tsd-kind-function"><a href="index.html#elapsedtostring" class="tsd-kind-icon">elapsed<wbr>ToString</a></li>
 							<li class="tsd-kind-function"><a href="index.html#isdefined" class="tsd-kind-icon">is<wbr>Defined</a></li>
 							<li class="tsd-kind-function"><a href="index.html#roundtomultipleof" class="tsd-kind-icon">round<wbr>ToMultiple<wbr>Of</a></li>
+							<li class="tsd-kind-function"><a href="index.html#sleep" class="tsd-kind-icon">sleep</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1075,7 +1079,7 @@ elapsedToString(<span class="hljs-number">1</span>, [TimeUnit.Microseconds]); <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/misc-utils.ts#L13">lib/misc-utils.ts:13</a></li>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/is-defined.ts#L13">lib/is-defined.ts:13</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1100,7 +1104,7 @@ isDefined(<span class="hljs-literal">undefined</span>); <span class="hljs-commen
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/misc-utils.ts#L27">lib/misc-utils.ts:27</a></li>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/round-to-multiple-of.ts#L11">lib/round-to-multiple-of.ts:11</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1111,6 +1115,30 @@ isDefined(<span class="hljs-literal">undefined</span>); <span class="hljs-commen
 roundToMultiple(<span class="hljs-number">2</span>, <span class="hljs-number">4.8</span>); <span class="hljs-comment">// 4</span>
 roundToMultiple(<span class="hljs-number">3</span>, <span class="hljs-number">-4</span>); <span class="hljs-comment">// -3</span>
 roundToMultiple(<span class="hljs-number">0.5</span>, <span class="hljs-number">1.6</span>); <span class="hljs-comment">// 1.5</span></code></pre>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="sleep" class="tsd-anchor"></a>
+				<h3>sleep</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">sleep<span class="tsd-signature-symbol">(</span>ms<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/sleep.ts#L10">lib/sleep.ts:10</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Returns a promise that resolves after <code>ms</code> milliseconds.</p>
+							</div>
+							<pre><code class="language-ts"><span class="hljs-comment">// do something</span>
+<span class="hljs-keyword">await</span> sleep(<span class="hljs-number">1000</span>); <span class="hljs-comment">// wait a second</span>
+<span class="hljs-comment">// do something else</span></code></pre>
 						</div>
 					</li>
 				</ul>
