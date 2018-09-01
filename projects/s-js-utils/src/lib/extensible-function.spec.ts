@@ -1,13 +1,13 @@
-import { CallableObject } from './callable-object';
+import { CallableObject } from "./callable-object";
 
-describe('ExtensibleFunction', () => {
-  it('is callable', () => {
+describe("ExtensibleFunction", () => {
+  it("is callable", () => {
     const multiplier = new Multiplier(2);
     expect(multiplier(2)).toBe(4);
     expect(multiplier(3)).toBe(6);
   });
 
-  it('still has remaining typings', () => {
+  it("still has remaining typings", () => {
     const multiplier = new Multiplier(2);
     expect(multiplier(2)).toBe(4);
 

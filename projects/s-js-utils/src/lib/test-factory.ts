@@ -43,7 +43,7 @@ export abstract class TestFactorySuperclass<Type, OptionsType = {}> {
   protected build(
     attributes: Partial<Type>,
     _options?: OptionsType,
-    _seq?: number
+    _seq?: number,
   ) {
     Object.assign(this, attributes);
   }

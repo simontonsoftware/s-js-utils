@@ -1,8 +1,8 @@
-import { isDefined, roundToMultipleOf } from './misc-utils';
+import { isDefined, roundToMultipleOf } from "./misc-utils";
 
-describe('misc-utils', () => {
-  describe('isDefined()', () => {
-    it('works', () => {
+describe("misc-utils", () => {
+  describe("isDefined()", () => {
+    it("works", () => {
       // tslint:disable-next-line:only-arrow-functions
       const args = (function(..._: any[]) {
         return arguments;
@@ -14,7 +14,7 @@ describe('misc-utils', () => {
       expect(isDefined(false)).toBe(true);
       expect(isDefined(0)).toBe(true);
       expect(isDefined(NaN)).toBe(true);
-      expect(isDefined('')).toBe(true);
+      expect(isDefined("")).toBe(true);
 
       // all the other things
       expect(isDefined(args)).toBe(true);
@@ -26,13 +26,13 @@ describe('misc-utils', () => {
       expect(isDefined({ a: 1 })).toBe(true);
       expect(isDefined(1)).toBe(true);
       expect(isDefined(/x/)).toBe(true);
-      expect(isDefined('a')).toBe(true);
-      expect(isDefined(Symbol('a'))).toBe(true);
+      expect(isDefined("a")).toBe(true);
+      expect(isDefined(Symbol("a"))).toBe(true);
     });
   });
 
-  describe('roundToMultiple()', () => {
-    it('works for whole numbers', () => {
+  describe("roundToMultiple()", () => {
+    it("works for whole numbers", () => {
       expect(roundToMultipleOf(2, 0)).toBe(0);
       expect(roundToMultipleOf(2, 1)).toBe(2);
       expect(roundToMultipleOf(2, 2)).toBe(2);
@@ -47,12 +47,12 @@ describe('misc-utils', () => {
       expect(roundToMultipleOf(3, 6)).toBe(6);
     });
 
-    it('works with fractional values', () => {
+    it("works with fractional values", () => {
       expect(roundToMultipleOf(3, 1.4)).toBe(0);
       expect(roundToMultipleOf(3, 1.5)).toBe(3);
     });
 
-    it('works with negative values', () => {
+    it("works with negative values", () => {
       expect(roundToMultipleOf(2, -0)).toBe(0);
       expect(roundToMultipleOf(2, -1)).toBe(0);
       expect(roundToMultipleOf(2, -2)).toBe(-2);
@@ -67,7 +67,7 @@ describe('misc-utils', () => {
       expect(roundToMultipleOf(3, -6)).toBe(-6);
     });
 
-    it('works with fractional multiples', () => {
+    it("works with fractional multiples", () => {
       expect(roundToMultipleOf(0.5, 1.24)).toBe(1);
       expect(roundToMultipleOf(0.5, 1.25)).toBe(1.5);
 

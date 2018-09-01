@@ -1,19 +1,19 @@
-import { last, ObjectWith } from 'micro-dash';
-import { roundToMultipleOf } from './misc-utils';
+import { last, ObjectWith } from "micro-dash";
+import { roundToMultipleOf } from "./misc-utils";
 
 export enum TimeUnit {
-  Nanoseconds = 'ns',
-  Microseconds = 'μs',
-  Milliseconds = 'ms',
-  Seconds = 's',
-  Minutes = 'm',
-  Hours = 'h',
-  Days = 'd',
-  Weeks = 'w',
-  Years = 'y',
-  Decades = 'dec',
-  Centuries = 'cent',
-  Millenia = 'mil'
+  Nanoseconds = "ns",
+  Microseconds = "μs",
+  Milliseconds = "ms",
+  Seconds = "s",
+  Minutes = "m",
+  Hours = "h",
+  Days = "d",
+  Weeks = "w",
+  Years = "y",
+  Decades = "dec",
+  Centuries = "cent",
+  Millenia = "mil",
 }
 
 export function convertTime(value: number, unit: string, targetUnit: string) {
@@ -23,11 +23,11 @@ export function convertTime(value: number, unit: string, targetUnit: string) {
 export function elapsedToString(
   elapsed: number,
   units: string[],
-  { elapsedUnit = TimeUnit.Milliseconds, showLeadingZeros = true } = {}
+  { elapsedUnit = TimeUnit.Milliseconds, showLeadingZeros = true } = {},
 ) {
   elapsed = roundToMultipleOf(
     convertTime(1, last(units), elapsedUnit),
-    elapsed
+    elapsed,
   );
 
   let showZeros = showLeadingZeros;
@@ -42,58 +42,58 @@ export function elapsedToString(
     }
     elapsed -= value / conversion;
   }
-  return tokens.join(' ');
+  return tokens.join(" ");
 }
 
 const nanoConversions: ObjectWith<number> = {};
-addConversion(TimeUnit.Nanoseconds, 'Nanosecond', 1, { aliases: ['nanos'] });
-addConversion(TimeUnit.Microseconds, 'Microsecond', 1000, {
-  aliases: ['micros']
+addConversion(TimeUnit.Nanoseconds, "Nanosecond", 1, { aliases: ["nanos"] });
+addConversion(TimeUnit.Microseconds, "Microsecond", 1000, {
+  aliases: ["micros"],
 });
-addConversion(TimeUnit.Milliseconds, 'Millisecond', 1000 * 1000, {
-  aliases: ['millis']
+addConversion(TimeUnit.Milliseconds, "Millisecond", 1000 * 1000, {
+  aliases: ["millis"],
 });
-addConversion(TimeUnit.Seconds, 'Second', 1000 * 1000 * 1000, {
-  aliases: ['S', 'sec', 'secs']
+addConversion(TimeUnit.Seconds, "Second", 1000 * 1000 * 1000, {
+  aliases: ["S", "sec", "secs"],
 });
-addConversion(TimeUnit.Minutes, 'Minute', 60 * 1000 * 1000 * 1000, {
-  aliases: ['M', 'min', 'mins']
+addConversion(TimeUnit.Minutes, "Minute", 60 * 1000 * 1000 * 1000, {
+  aliases: ["M", "min", "mins"],
 });
-addConversion(TimeUnit.Hours, 'Hour', 60 * 60 * 1000 * 1000 * 1000, {
-  aliases: ['H', 'hr', 'hrs']
+addConversion(TimeUnit.Hours, "Hour", 60 * 60 * 1000 * 1000 * 1000, {
+  aliases: ["H", "hr", "hrs"],
 });
-addConversion(TimeUnit.Days, 'Day', 24 * 60 * 60 * 1000 * 1000 * 1000, {
-  aliases: ['D']
+addConversion(TimeUnit.Days, "Day", 24 * 60 * 60 * 1000 * 1000 * 1000, {
+  aliases: ["D"],
 });
-addConversion(TimeUnit.Weeks, 'Week', 7 * 24 * 60 * 60 * 1000 * 1000 * 1000, {
-  aliases: ['W', 'wk', 'wks']
+addConversion(TimeUnit.Weeks, "Week", 7 * 24 * 60 * 60 * 1000 * 1000 * 1000, {
+  aliases: ["W", "wk", "wks"],
 });
-addConversion(TimeUnit.Years, 'Year', 365 * 24 * 60 * 60 * 1000 * 1000 * 1000, {
-  aliases: ['Y', 'yr', 'yrs']
+addConversion(TimeUnit.Years, "Year", 365 * 24 * 60 * 60 * 1000 * 1000 * 1000, {
+  aliases: ["Y", "yr", "yrs"],
 });
 addConversion(
   TimeUnit.Decades,
-  'Decade',
-  10 * 365 * 24 * 60 * 60 * 1000 * 1000 * 1000
+  "Decade",
+  10 * 365 * 24 * 60 * 60 * 1000 * 1000 * 1000,
 );
 addConversion(
   TimeUnit.Centuries,
-  'Century',
+  "Century",
   100 * 365 * 24 * 60 * 60 * 1000 * 1000 * 1000,
-  { plural: 'Centuries' }
+  { plural: "Centuries" },
 );
 addConversion(
   TimeUnit.Millenia,
-  'Millenium',
+  "Millenium",
   1000 * 365 * 24 * 60 * 60 * 1000 * 1000 * 1000,
-  { plural: 'Millenia' }
+  { plural: "Millenia" },
 );
 
 function addConversion(
   unit: TimeUnit,
   singular: string,
   nanos: number,
-  { aliases = [] as string[], plural = singular + 's' } = {}
+  { aliases = [] as string[], plural = singular + "s" } = {},
 ) {
   for (const key of [
     unit,
@@ -101,7 +101,7 @@ function addConversion(
     singular.toLowerCase(),
     plural,
     plural.toLowerCase(),
-    ...aliases
+    ...aliases,
   ]) {
     nanoConversions[key] = nanos;
   }

@@ -1,4 +1,4 @@
-import { isUndefined } from 'micro-dash';
+import { isUndefined } from "micro-dash";
 
 export function isDefined(value: any) {
   return !isUndefined(value);

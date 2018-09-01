@@ -1,17 +1,17 @@
-import { TestFactorySuperclass } from './test-factory';
+import { TestFactorySuperclass } from "./test-factory";
 
-describe('TestFactorySuperclass', () => {
-  it('assigns the given attributes', () => {
-    expect(new TestMyType({ id: 'my id' }).id).toBe('my id');
+describe("TestFactorySuperclass", () => {
+  it("assigns the given attributes", () => {
+    expect(new TestMyType({ id: "my id" }).id).toBe("my id");
   });
 
-  it('allows the use of options', () => {
+  it("allows the use of options", () => {
     expect(
-      new TestMyTypeWithOptions({}, { idPrefix: 'obj-' }).id.startsWith('obj-')
+      new TestMyTypeWithOptions({}, { idPrefix: "obj-" }).id.startsWith("obj-"),
     ).toBe(true);
   });
 
-  it('provides a unique sequence number', () => {
+  it("provides a unique sequence number", () => {
     const obj1 = new TestMyType();
     const obj2 = new TestMyType();
     expect(obj2.id).toEqual((Number(obj1.id) + 1).toString());
@@ -40,7 +40,7 @@ class TestMyTypeWithOptions extends TestFactorySuperclass<MyType, Options>
   id!: string;
 
   protected build(attributes: Partial<MyType>, options: Options, seq: number) {
-    this.id = (options.idPrefix || '') + seq;
+    this.id = (options.idPrefix || "") + seq;
     super.build(attributes);
   }
 }
