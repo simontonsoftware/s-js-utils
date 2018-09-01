@@ -1,5 +1,5 @@
 import { last, ObjectWith } from "micro-dash";
-import { roundToMultipleOf } from "./misc-utils";
+import { roundToMultipleOf } from "./round-to-multiple-of";
 
 /**
  * Defines the canonical string representation for each time unit. Many aliases

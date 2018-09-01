@@ -1,6 +1,6 @@
 import { CallableObject } from "./callable-object";
 
-describe("ExtensibleFunction", () => {
+describe("CallableFunction", () => {
   it("is callable", () => {
     const multiplier = new Multiplier(2);
     expect(multiplier(2)).toBe(4);
