@@ -931,6 +931,20 @@ img { max-width: 100%; }
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>An object you can use to create a promise and resolve/reject it later.</p>
+				</div>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> deferred = <span class="hljs-keyword">new</span> Deferred&lt;<span class="hljs-built_in">string</span>&gt;();
+
+<span class="hljs-comment">// later</span>
+deferred.resolve(<span class="hljs-string">'a nice value'</span>); <span class="hljs-comment">// causes `deferred.promise` to resolve</span>
+
+<span class="hljs-comment">// or</span>
+deferred.reject(<span class="hljs-string">'a bad value'</span>); <span class="hljs-comment">// causes `deferred.promise` to reject</span></code></pre>
+			</div>
+		</section>
 		<section class="tsd-panel tsd-type-parameters">
 			<h3>Type parameters</h3>
 			<ul class="tsd-type-parameters">
@@ -980,7 +994,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L4">lib/deferred.ts:4</a></li>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L17">lib/deferred.ts:17</a></li>
 							</ul>
 						</aside>
 					</li>
@@ -995,7 +1009,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">promise<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L2">lib/deferred.ts:2</a></li>
+						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L15">lib/deferred.ts:15</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1005,7 +1019,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">reject<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L4">lib/deferred.ts:4</a></li>
+						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L17">lib/deferred.ts:17</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1015,7 +1029,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L3">lib/deferred.ts:3</a></li>
+						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L16">lib/deferred.ts:16</a></li>
 					</ul>
 				</aside>
 			</section>

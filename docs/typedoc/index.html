@@ -975,7 +975,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">nano<wbr>Conversions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ObjectWith</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time-utils.ts#L48">lib/time-utils.ts:48</a></li>
+						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time-utils.ts#L84">lib/time-utils.ts:84</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1012,7 +1012,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time-utils.ts#L92">lib/time-utils.ts:92</a></li>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time-utils.ts#L128">lib/time-utils.ts:128</a></li>
 							</ul>
 						</aside>
 					</li>
@@ -1028,9 +1028,16 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time-utils.ts#L19">lib/time-utils.ts:19</a></li>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time-utils.ts#L44">lib/time-utils.ts:44</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Converts time between two units. Units can be any value described in the docs for <a href="enums/timeunit.html">TimeUnit</a>.</p>
+							</div>
+							<pre><code class="language-ts">convertTime(<span class="hljs-number">1</span>, <span class="hljs-string">'s'</span>, <span class="hljs-string">'ms'</span>); <span class="hljs-comment">// 1000</span>
+convertTime(<span class="hljs-number">20</span>, TimeUnit.Decades, TimeUnit.Centuries); <span class="hljs-comment">// 2</span></code></pre>
+						</div>
 					</li>
 				</ul>
 			</section>
@@ -1044,9 +1051,17 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time-utils.ts#L23">lib/time-utils.ts:23</a></li>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time-utils.ts#L59">lib/time-utils.ts:59</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Constructs a string representation of an elapsed amount of time. The least significant unit will be rounded to the nearest whole number.</p>
+							</div>
+							<pre><code class="language-ts">elapsedToString(<span class="hljs-number">2001</span>, [<span class="hljs-string">"s"</span>, <span class="hljs-string">"ms"</span>]); <span class="hljs-comment">// "2 s 1 ms"</span>
+elapsedToString(<span class="hljs-number">15</span>, [<span class="hljs-string">"wks"</span>, <span class="hljs-string">"d"</span>], ( elapsedUnit: TimeUnit.Days }); <span class="hljs-comment">// "2 wks 1 d"</span>
+elapsedToString(<span class="hljs-number">1</span>, [TimeUnit.Microseconds]); <span class="hljs-comment">// "1000 μs"</span></code></pre>
+						</div>
 					</li>
 				</ul>
 			</section>
@@ -1060,9 +1075,18 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/misc-utils.ts#L3">lib/misc-utils.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/misc-utils.ts#L13">lib/misc-utils.ts:13</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Checks if <code>value</code> is anything other than <code>undefined</code>.</p>
+							</div>
+							<pre><code class="language-ts">isDefined({ a: <span class="hljs-number">1</span> }); <span class="hljs-comment">// true</span>
+isDefined(<span class="hljs-literal">false</span>); <span class="hljs-comment">// true</span>
+isDefined(<span class="hljs-literal">null</span>); <span class="hljs-comment">// true</span>
+isDefined(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// false</span></code></pre>
+						</div>
 					</li>
 				</ul>
 			</section>
@@ -1076,9 +1100,18 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/misc-utils.ts#L7">lib/misc-utils.ts:7</a></li>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/misc-utils.ts#L27">lib/misc-utils.ts:27</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Rounds <code>value</code> to the nearest multiple of <code>multiple</code>.</p>
+							</div>
+							<pre><code class="language-ts">roundToMultiple(<span class="hljs-number">13</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// 15</span>
+roundToMultiple(<span class="hljs-number">2</span>, <span class="hljs-number">4.8</span>); <span class="hljs-comment">// 4</span>
+roundToMultiple(<span class="hljs-number">3</span>, <span class="hljs-number">-4</span>); <span class="hljs-comment">// -3</span>
+roundToMultiple(<span class="hljs-number">0.5</span>, <span class="hljs-number">1.6</span>); <span class="hljs-comment">// 1.5</span></code></pre>
+						</div>
 					</li>
 				</ul>
 			</section>
