@@ -4377,9 +4377,9 @@ methods@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
 
-micro-dash@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/micro-dash/-/micro-dash-4.1.0.tgz#6b69d9440d60ba83d6bc3295fa34ce4240936030"
+micro-dash@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/micro-dash/-/micro-dash-4.2.0.tgz#84da0a853dc6a869cb365b7349518d1b4ed8548b"
   dependencies:
     tslib "^1.9.0"
 
