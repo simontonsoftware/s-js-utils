@@ -1,21 +1,20 @@
 import { toString } from "micro-dash";
 
-export function toCsv(data: any[][]) {
-  return data
+export function toCsv(content: any[][]) {
+  return content
     .map((row) => row.map((cell) => escape(cell)).join(","))
     .join("\n");
 }
 
+const specialCsvCharactersRegexp = /["|,|\n|\r]/;
+const allDoubleQuotes = /"/g;
+
 function escape(value: any) {
   const string = toString(value);
 
-  if (/["|,|\n|\r]/.test(string)) {
-    return wrapWithQuotes(string.replace(/"/g, `""`));
+  if (specialCsvCharactersRegexp.test(string)) {
+    return `"${string.replace(allDoubleQuotes, `""`)}"`;
   } else {
     return string;
   }
-}
-
-function wrapWithQuotes(string: string) {
-  return `"${string}"`;
 }
