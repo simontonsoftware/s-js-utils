@@ -1,6 +1,6 @@
 import { toString } from "micro-dash";
 
-export function writeCsv(data: any[][]) {
+export function toCsv(data: any[][]) {
   return data
     .map((row) => row.map((cell) => escape(cell)).join(","))
     .join("\n");
