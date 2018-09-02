@@ -36,12 +36,12 @@ describe("toCsv()", () => {
   });
 
   it("properly escapes new lines", () => {
-    expect(
-      toCsv([["one", "1"], ["two", "1\n2"], ["three", "1\n2\n3"]]),
-    ).toBe(`one,1\ntwo,"1\n2"\nthree,"1\n2\n3"`);
-    expect(
-      toCsv([["one", "1"], ["two", "1\r2"], ["three", "1\r2\r3"]]),
-    ).toBe(`one,1\ntwo,"1\r2"\nthree,"1\r2\r3"`);
+    expect(toCsv([["one", "1"], ["two", "1\n2"], ["three", "1\n2\n3"]])).toBe(
+      `one,1\ntwo,"1\n2"\nthree,"1\n2\n3"`,
+    );
+    expect(toCsv([["one", "1"], ["two", "1\r2"], ["three", "1\r2\r3"]])).toBe(
+      `one,1\ntwo,"1\r2"\nthree,"1\r2\r3"`,
+    );
     expect(
       toCsv([["one", "1"], ["two", "1\r\n2"], ["three", "1\r\n2\r\n3"]]),
     ).toBe(`one,1\ntwo,"1\r\n2"\nthree,"1\r\n2\r\n3"`);
