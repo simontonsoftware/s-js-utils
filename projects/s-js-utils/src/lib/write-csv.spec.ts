@@ -39,6 +39,12 @@ describe("writeCsv()", () => {
     expect(
       writeCsv([["one", "1"], ["two", "1\n2"], ["three", "1\n2\n3"]]),
     ).toBe(`one,1\ntwo,"1\n2"\nthree,"1\n2\n3"`);
+    expect(
+      writeCsv([["one", "1"], ["two", "1\r2"], ["three", "1\r2\r3"]]),
+    ).toBe(`one,1\ntwo,"1\r2"\nthree,"1\r2\r3"`);
+    expect(
+      writeCsv([["one", "1"], ["two", "1\r\n2"], ["three", "1\r\n2\r\n3"]]),
+    ).toBe(`one,1\ntwo,"1\r\n2"\nthree,"1\r\n2\r\n3"`);
   });
 
   it("escapes properly if there are multiple special things", () => {
@@ -56,11 +62,11 @@ describe("writeCsv()", () => {
   it("handles things that aren't strings", () => {
     expect(
       writeCsv([
-        // [undefined, null],
+        [undefined, null],
         [true, false],
         [1, 2, 3],
         [{}, { hi: "there" }],
       ]),
-    ).toBe("true,false\n1,2,3\n[object Object],[object Object]");
+    ).toBe(",\ntrue,false\n1,2,3\n[object Object],[object Object]");
   });
 });

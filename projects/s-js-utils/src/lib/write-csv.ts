@@ -1,3 +1,5 @@
+import { toString } from "micro-dash";
+
 export function writeCsv(data: any[][]) {
   return data
     .map((row) => row.map((cell) => escape(cell)).join(","))
@@ -5,9 +7,9 @@ export function writeCsv(data: any[][]) {
 }
 
 function escape(value: any) {
-  const string = value.toString();
+  const string = toString(value);
 
-  if (/["|,|\n]/.test(string)) {
+  if (/["|,|\n|\r]/.test(string)) {
     return wrapWithQuotes(string.replace(/"/g, `""`));
   } else {
     return string;
