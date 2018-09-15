@@ -1,5 +1,16 @@
 import { CallableObject } from "./callable-object";
 
+interface Multiplier {
+  // tslint:disable:callable-types
+  (value: number): number;
+}
+
+class Multiplier extends CallableObject {
+  constructor(public factor: number) {
+    super((value: number) => value * this.factor);
+  }
+}
+
 describe("CallableFunction", () => {
   it("is callable", () => {
     const multiplier = new Multiplier(2);
@@ -15,14 +26,3 @@ describe("CallableFunction", () => {
     expect(multiplier(2)).toBe(6);
   });
 });
-
-interface Multiplier {
-  // tslint:disable:callable-types
-  (value: number): number;
-}
-
-class Multiplier extends CallableObject {
-  constructor(public factor: number) {
-    super((value: number) => value * this.factor);
-  }
-}

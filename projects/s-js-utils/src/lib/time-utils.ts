@@ -1,6 +1,8 @@
 import { last, ObjectWith } from "micro-dash";
 import { roundToMultipleOf } from "./round-to-multiple-of";
 
+const nanoConversions: ObjectWith<number> = {};
+
 /**
  * Defines the canonical string representation for each time unit. Many aliases
  * can also be used with the functions that deal with time units:
@@ -81,7 +83,6 @@ export function elapsedToString(
   return tokens.join(" ");
 }
 
-const nanoConversions: ObjectWith<number> = {};
 addConversion(TimeUnit.Nanoseconds, "Nanosecond", 1, { aliases: ["nanos"] });
 addConversion(TimeUnit.Microseconds, "Microsecond", 1000, {
   aliases: ["micros"],
