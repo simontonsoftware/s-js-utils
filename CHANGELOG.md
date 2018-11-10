@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+
+# 3.0.0 (2018-11-10)
+
+### Features
+
+- add `createBuilder()` ([e9b5a3d](https://github.com/simontonsoftware/s-js-utils/commit/e9b5a3d))
+- add `sleep()` ([02e689b](https://github.com/simontonsoftware/s-js-utils/commit/02e689b))
+- add `toCsv()` ([143fe2e](https://github.com/simontonsoftware/s-js-utils/commit/143fe2e))
+
+### BREAKING CHANGES
+
+- uses Typescript 3 (up from Typescript 2)
+- requires micro-dash 5 (up from micro-dash 4)
+- `createBuilder()` replaces `TestFactorySuperclass`
+
 <a name="2.1.0"></a>
 
 # [2.1.0](https://github.com/simontonsoftware/s-js-utils/compare/v2.0.0...v2.1.0) (2018-08-29)
