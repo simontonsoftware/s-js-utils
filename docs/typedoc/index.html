@@ -928,6 +928,9 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-function">
 			<a href="index.html#tocsv" class="tsd-kind-icon">to<wbr>Csv</a>
 		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="index.html#wrapfunction" class="tsd-kind-icon">wrap<wbr>Function</a>
+		</li>
 	</ul>
 </nav>
 <div class="container container-main">
@@ -972,6 +975,7 @@ img { max-width: 100%; }
 							<li class="tsd-kind-function"><a href="index.html#sleep" class="tsd-kind-icon">sleep</a></li>
 							<li class="tsd-kind-function tsd-is-not-exported"><a href="index.html#tocellstring" class="tsd-kind-icon">to<wbr>Cell<wbr>String</a></li>
 							<li class="tsd-kind-function"><a href="index.html#tocsv" class="tsd-kind-icon">to<wbr>Csv</a></li>
+							<li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#wrapfunction" class="tsd-kind-icon">wrap<wbr>Function</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1262,6 +1266,42 @@ toCsv([
   [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>],
 [{}, { hi: <span class="hljs-string">"there"</span> }]
 ]) <span class="hljs-comment">// "a,,string\n,\ntrue,false\n1,2,3\n[object Object],[object Object]"</span></code></pre>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<a name="wrapfunction" class="tsd-anchor"></a>
+				<h3>wrap<wbr>Function</h3>
+				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">wrap<wbr>Function&lt;A, R&gt;<span class="tsd-signature-symbol">(</span>original<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, __namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/wrap-function.ts#L21">lib/wrap-function.ts:21</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Returns a new function to use in place of <code>func</code> that will call the provided hooks in addition to <code>func</code>. They are called in the following order:</p>
+							</div>
+							<ol>
+								<li><code>before</code></li>
+								<li><code>original</code></li>
+								<li><code>transform</code></li>
+								<li><code>after</code></li>
+							</ol>
+							<pre><code class="language-ts"><span class="hljs-keyword">const</span> sum = <span class="hljs-function">(<span class="hljs-params">a: <span class="hljs-built_in">number</span>, b: <span class="hljs-built_in">number</span></span>) =&gt;</span> a + b;
+<span class="hljs-keyword">const</span> sumAndLog = wrapFunction(sum, {
+  after: <span class="hljs-function">(<span class="hljs-params">result, a, b</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(a, <span class="hljs-string">'+'</span>, b, <span class="hljs-string">'='</span>, result);
+  },
+}
+<span class="hljs-keyword">const</span> sumPlusOne = wrapFunction(sum, {
+  transform: <span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> result + <span class="hljs-number">1</span>,
+});</code></pre>
 						</div>
 					</li>
 				</ul>
