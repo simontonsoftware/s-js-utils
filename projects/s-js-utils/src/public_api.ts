@@ -10,3 +10,4 @@ export * from "./lib/round-to-multiple-of";
 export * from "./lib/sleep";
 export * from "./lib/time-utils";
 export * from "./lib/to-csv";
+export * from "./lib/wrap-function";
