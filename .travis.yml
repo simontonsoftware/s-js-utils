@@ -21,8 +21,8 @@ install:
 
 script:
   - yarn test s-js-utils --code-coverage --watch=false --progress=false --browsers=ChromeHeadlessCI
-#  - yarn build s-js-utils --prod
-#  - yarn e2e --protractor-config=./e2e/protractor-ci.conf.js
+  - yarn build s-js-utils --prod
+  - yarn e2e --protractor-config=./e2e/protractor-ci.conf.js
 
 after_success:
   - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js

@@ -11,7 +11,7 @@ class Multiplier extends CallableObject {
   }
 }
 
-describe("CallableFunction", () => {
+describe("CallableObject", () => {
   it("is callable", () => {
     const multiplier = new Multiplier(2);
     expect(multiplier(2)).toBe(4);
