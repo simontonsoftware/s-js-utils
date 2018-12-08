@@ -57,6 +57,15 @@ describe("time-utils", () => {
       expect(elapsedToString(1000, units)).toBe("0 d 0 h 0 m 1 s");
     });
 
+    it("does not trim the least significant leading zero (production bug)", () => {
+      expect(elapsedToString(0, ["d"], { showLeadingZeros: false })).toBe(
+        "0 d",
+      );
+      expect(elapsedToString(0, ["d", "m"], { showLeadingZeros: false })).toBe(
+        "0 m",
+      );
+    });
+
     it("rounds appropriately", () => {
       expect(elapsedToString(499, ["s"])).toBe("0 s");
       expect(elapsedToString(500, ["s"])).toBe("1 s");
