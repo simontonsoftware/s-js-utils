@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.0"></a>
+
+# [4.0.0](https://github.com/simontonsoftware/s-js-utils/compare/v3.1.1...v4.0.0) (2019-01-05)
+
+### Features
+
+- add `isEqualAtDepth()` ([fc54411](https://github.com/simontonsoftware/s-js-utils/commit/fc54411))
+
+### BREAKING CHANGES
+
+- requires micro-dash 5.4
+
 <a name="3.1.1"></a>
 
 ## [3.1.1](https://github.com/simontonsoftware/s-js-utils/compare/v3.1.0...v3.1.1) (2018-12-08)

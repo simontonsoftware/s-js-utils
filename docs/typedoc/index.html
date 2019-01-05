@@ -917,6 +917,9 @@ img { max-width: 100%; }
 			<a href="index.html#isdefined" class="tsd-kind-icon">is<wbr>Defined</a>
 		</li>
 		<li class=" tsd-kind-function">
+			<a href="index.html#isequalatdepth" class="tsd-kind-icon">is<wbr>Equal<wbr>AtDepth</a>
+		</li>
+		<li class=" tsd-kind-function">
 			<a href="index.html#roundtomultipleof" class="tsd-kind-icon">round<wbr>ToMultiple<wbr>Of</a>
 		</li>
 		<li class=" tsd-kind-function">
@@ -971,6 +974,7 @@ img { max-width: 100%; }
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#createbuilder" class="tsd-kind-icon">create<wbr>Builder</a></li>
 							<li class="tsd-kind-function"><a href="index.html#elapsedtostring" class="tsd-kind-icon">elapsed<wbr>ToString</a></li>
 							<li class="tsd-kind-function"><a href="index.html#isdefined" class="tsd-kind-icon">is<wbr>Defined</a></li>
+							<li class="tsd-kind-function"><a href="index.html#isequalatdepth" class="tsd-kind-icon">is<wbr>Equal<wbr>AtDepth</a></li>
 							<li class="tsd-kind-function"><a href="index.html#roundtomultipleof" class="tsd-kind-icon">round<wbr>ToMultiple<wbr>Of</a></li>
 							<li class="tsd-kind-function"><a href="index.html#sleep" class="tsd-kind-icon">sleep</a></li>
 							<li class="tsd-kind-function tsd-is-not-exported"><a href="index.html#tocellstring" class="tsd-kind-icon">to<wbr>Cell<wbr>String</a></li>
@@ -1172,6 +1176,43 @@ elapsedToString(<span class="hljs-number">1</span>, [TimeUnit.Microseconds]); <s
 isDefined(<span class="hljs-literal">false</span>); <span class="hljs-comment">// true</span>
 isDefined(<span class="hljs-literal">null</span>); <span class="hljs-comment">// true</span>
 isDefined(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// false</span></code></pre>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="isequalatdepth" class="tsd-anchor"></a>
+				<h3>is<wbr>Equal<wbr>AtDepth</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">is<wbr>Equal<wbr>AtDepth<span class="tsd-signature-symbol">(</span>depth<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, other<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/is-equal-at-depth.ts#L25">lib/is-equal-at-depth.ts:25</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Performs a deep comparison between two values to determine if they are equivalent, up to the given depth. Once that depth is reached, remaining values are compared using <code>Object.is()</code>.</p>
+							</div>
+							<pre><code class="language-ts"><span class="hljs-keyword">let</span> object1 = <span class="hljs-string">"a"</span>;
+<span class="hljs-keyword">let</span> object2 = <span class="hljs-string">"a"</span>;
+isEqualAtDepth(<span class="hljs-number">0</span>, object1, object2); <span class="hljs-comment">// true</span>
+isEqualAtDepth(<span class="hljs-number">1</span>, object1, object2); <span class="hljs-comment">// true</span>
+
+<span class="hljs-keyword">let</span> object1 = { a: <span class="hljs-number">1</span> };
+<span class="hljs-keyword">let</span> object2 = { a: <span class="hljs-number">1</span> };
+isEqualAtDepth(<span class="hljs-number">0</span>, object1, object2); <span class="hljs-comment">// false</span>
+isEqualAtDepth(<span class="hljs-number">1</span>, object1, object2); <span class="hljs-comment">// true</span>
+
+object1 = { a: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], d: { e: <span class="hljs-number">1</span> } };
+object2 = { a: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], d: { e: <span class="hljs-number">1</span> } };
+isEqualAtDepth(<span class="hljs-number">0</span>, object1, object2); <span class="hljs-comment">// false</span>
+isEqualAtDepth(<span class="hljs-number">1</span>, object1, object2); <span class="hljs-comment">// false</span>
+isEqualAtDepth(<span class="hljs-number">2</span>, object1, object2); <span class="hljs-comment">// true</span>
+isEqualAtDepth(<span class="hljs-number">3</span>, object1, object2); <span class="hljs-comment">// true</span></code></pre>
 						</div>
 					</li>
 				</ul>
