@@ -5,6 +5,7 @@
 export * from "./lib/callable-object";
 export * from "./lib/create-builder";
 export * from "./lib/deferred";
+export * from './lib/is-equal-at-depth';
 export * from "./lib/is-defined";
 export * from "./lib/round-to-multiple-of";
 export * from "./lib/sleep";

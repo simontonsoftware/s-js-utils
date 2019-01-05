@@ -5038,9 +5038,9 @@ methods@~1.1.2:
   integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
 
 micro-dash@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/micro-dash/-/micro-dash-5.0.0.tgz#26c28d0d628fdc064637ae662265cd427e61a0f3"
-  integrity sha512-/g31LHkL4gL6NS5G8O0C/kIHnV0bYYXy5qcVmfa2ySY0jtfFwLWSju+Lxk5sH/RJTtSqnOWreJQjlxUhQxsm7Q==
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/micro-dash/-/micro-dash-5.4.0.tgz#763f0241f5b3a6d6f99e7fed950c90c043909f24"
+  integrity sha512-gY7eUR7QuguAYIEOe2hV/9lm3Y6Tx+y51Om9NGzyLk/CtAWF2Jrd16iUyYchFZiJjh4EiVun1rFrBnrDT4stBg==
   dependencies:
     tslib "^1.9.0"
 
