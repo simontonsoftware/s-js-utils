@@ -2,7 +2,7 @@
 
 ## Simonton Software Typescript Utils
 
-S-js-utils is one library in a suite that is available from Simonton Software. Each one builds on the last, organized by their dependencies:
+`s-js-utils` is one library in a suite that is available from Simonton Software. Each one builds on the last, organized by their dependencies:
 
 1. [`micro-dash`](https://github.com/simontonsoftware/micro-dash): A much smaller Lodash
 1. **`s-js-utils`: Miscellaneous utilities written in TypeScript**
