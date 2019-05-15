@@ -10,7 +10,7 @@ import { toString } from "micro-dash";
  *   [undefined, null],
  *   [true, false],
  *   [1, 2, 3],
-     [{}, { hi: "there" }]
+ *   [{}, { hi: "there" }]
  * ]) // "a,,string\n,\ntrue,false\n1,2,3\n[object Object],[object Object]"
  * ```
  */
@@ -24,11 +24,11 @@ const specialCsvCharactersRegexp = /["|,|\n|\r]/;
 const allDoubleQuotes = /"/g;
 
 function toCellString(value: any) {
-  const string = toString(value);
+  const str = toString(value);
 
-  if (specialCsvCharactersRegexp.test(string)) {
-    return `"${string.replace(allDoubleQuotes, `""`)}"`;
+  if (specialCsvCharactersRegexp.test(str)) {
+    return `"${str.replace(allDoubleQuotes, `""`)}"`;
   } else {
-    return string;
+    return str;
   }
 }
