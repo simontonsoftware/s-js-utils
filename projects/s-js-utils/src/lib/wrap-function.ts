@@ -18,28 +18,28 @@
  * });
  * ```
  */
-export function wrapFunction<A extends any[], R>(
-  original: (...args: A) => R,
+export function wrapFunction<A extends any[], R, T>(
+  original: (this: T, ...args: A) => R,
   {
     before,
     transform,
     after,
   }: {
-    before?: (...args: A) => void;
-    transform?: (result: R, ...args: A) => R;
-    after?: (result: R, ...args: A) => void;
+    before?: (this: T, ...args: A) => void;
+    transform?: (this: T, result: R, ...args: A) => R;
+    after?: (this: T, result: R, ...args: A) => void;
   },
-): typeof original {
-  const wrapped = function(this: any, ...args: A) {
+): (this: T, ...args: A) => R {
+  const wrapped = function(this: T, ...args: A) {
     if (before) {
       before.apply(this, args);
     }
     let result: R = original.apply(this, args);
     if (transform) {
-      result = transform.call(this, result, ...args);
+      result = (transform as any).call(this, result, ...args);
     }
     if (after) {
-      after.call(this, result, ...args);
+      (after as any).call(this, result, ...args);
     }
     return result;
   };
