@@ -1,4 +1,5 @@
-import { last, ObjectWith } from "micro-dash";
+import { last } from "micro-dash";
+import { ObjectWith } from "s-ng-dev-utils";
 import { roundToMultipleOf } from "./round-to-multiple-of";
 
 const nanoConversions: ObjectWith<number> = {};
