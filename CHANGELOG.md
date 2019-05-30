@@ -1,6 +1,18 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [5.0.0](https://github.com/simontonsoftware/s-js-utils/compare/v4.0.0...v5.0.0) (2019-05-30)
+
+### chore
+
+- more upgrades ([601b36b](https://github.com/simontonsoftware/s-js-utils/commit/601b36b))
+- update dependencies ([6ed10d6](https://github.com/simontonsoftware/s-js-utils/commit/6ed10d6))
+
+### BREAKING CHANGES
+
+- requires micro-dash 6.0 (up from 5.0)
+- Uses Typescript 3.4
 
 <a name="4.0.0"></a>
 
