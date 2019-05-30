@@ -38,7 +38,7 @@ describe("wrapFunction()", () => {
     assert.calledWithExactly(transform, toReturn, arg1, arg2);
   }
 
-  function expectProperCallToAfter(result: Symbol) {
+  function expectProperCallToAfter(result: symbol) {
     assert.calledOnce(after);
     assert.calledOn(after, context);
     assert.calledWithExactly(after, result, arg1, arg2);
