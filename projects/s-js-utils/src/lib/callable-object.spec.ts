@@ -1,11 +1,6 @@
 import { CallableObject } from "./callable-object";
 
-interface Multiplier {
-  // tslint:disable:callable-types
-  (value: number): number;
-}
-
-class Multiplier extends CallableObject {
+class Multiplier extends CallableObject<(value: number) => number> {
   constructor(public factor: number) {
     super((value: number) => value * this.factor);
   }

@@ -1,12 +1,14 @@
+/** @hidden */
+export interface CallableObject<F extends (...args: any[]) => any> {
+  // tslint:disable-next-line:callable-types
+  (...args: Parameters<F>): ReturnType<F>;
+}
+
 /**
- * Extend this for classes whose objects are directly callable. Sadly, you'll need to define an extra interface and repeat the typing information, for now. (Maybe fixable with TypeScript 3 tuples?)
+ * Extend this for classes whose objects are directly callable.
  *
  * ```ts
- * interface Multiplier {
- *   (value: number): number;
- * }
- *
- * class Multiplier extends CallableObject {
+ * class Multiplier extends CallableObject<(value: number) => number> {
  *   constructor(public factor: number) {
  *     super((value: number) => value * this.factor);
  *   }
@@ -18,8 +20,8 @@
  * doubler(2); // 6
  * ```
  */
-export abstract class CallableObject {
-  constructor(f: Function) {
-    return Object.setPrototypeOf(f, new.target.prototype);
+export abstract class CallableObject<F extends (...args: any[]) => any> {
+  constructor(callAction: F) {
+    return Object.setPrototypeOf(callAction, new.target.prototype);
   }
 }
