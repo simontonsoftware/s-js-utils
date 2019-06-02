@@ -2,13 +2,13 @@
  * Public API Surface of s-js-utils
  */
 
-export * from "./lib/callable-object";
-export * from "./lib/create-builder";
-export * from "./lib/deferred";
-export * from "./lib/is-equal-at-depth";
-export * from "./lib/is-defined";
-export * from "./lib/round-to-multiple-of";
-export * from "./lib/sleep";
-export * from "./lib/time-utils";
-export * from "./lib/to-csv";
-export * from "./lib/wrap-function";
+export { CallableObject } from "./lib/callable-object";
+export { createBuilder } from "./lib/create-builder";
+export { Deferred } from "./lib/deferred";
+export { isDefined } from "./lib/is-defined";
+export { isEqualAtDepth } from "./lib/is-equal-at-depth";
+export { roundToMultipleOf } from "./lib/round-to-multiple-of";
+export { sleep } from "./lib/sleep";
+export { TimeUnit, convertTime, elapsedToString } from "./lib/time-utils";
+export { toCsv } from "./lib/to-csv";
+export { wrapFunction } from "./lib/wrap-function";
