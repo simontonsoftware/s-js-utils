@@ -2,7 +2,7 @@
  * Returns a new function to use in place of `func` that will call the provided hooks in addition to `func`. They are called in the following order:
  *
  * 1. `before`
- * 2. `original`
+ * 2. `around` if provided, else `original`
  * 3. `transform`
  * 4. `after`
  *
@@ -22,10 +22,12 @@ export function wrapFunction<A extends any[], R, T>(
   original: (this: T, ...args: A) => R,
   {
     before,
+    around,
     transform,
     after,
   }: {
     before?: (this: T, ...args: A) => void;
+    around?: (this: T, fn: (...args: A) => R, ...args: A) => R;
     transform?: (this: T, result: R, ...args: A) => R;
     after?: (this: T, result: R, ...args: A) => void;
   },
@@ -34,7 +36,12 @@ export function wrapFunction<A extends any[], R, T>(
     if (before) {
       before.apply(this, args);
     }
-    let result: R = original.apply(this, args);
+    let result: R;
+    if (around) {
+      result = (around as any).call(this, original, ...args);
+    } else {
+      result = original.apply(this, args);
+    }
     if (transform) {
       result = (transform as any).call(this, result, ...args);
     }

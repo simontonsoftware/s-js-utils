@@ -7,8 +7,12 @@ describe("wrapFunction()", () => {
   const arg2 = Symbol("arg2");
   const toReturn = Symbol("toReturn");
   const transformed = Symbol("transformed");
+  const aroundContext = Symbol("aroundContext");
+  const aroundArg = Symbol("aroundArg");
+  const aroundReturn = Symbol("aroundReturn");
 
   let original: SinonStub;
+  let around: SinonStub;
   let before: SinonStub;
   let transform: SinonStub;
   let after: SinonStub;
@@ -16,6 +20,13 @@ describe("wrapFunction()", () => {
   beforeEach(() => {
     original = stub().returns(toReturn);
     before = stub();
+    around = stub().callsFake(function(
+      this: any,
+      orig: Function,
+      ...args: any[]
+    ) {
+      return [orig.call(aroundContext, aroundArg, ...args), aroundReturn];
+    });
     transform = stub().returns(transformed);
     after = stub();
   });
@@ -44,6 +55,24 @@ describe("wrapFunction()", () => {
     assert.calledWithExactly(after, result, arg1, arg2);
   }
 
+  function expectProperCallToAround() {
+    assert.calledOnce(around);
+    assert.calledOn(around, context);
+    assert.calledWithExactly(around, original, arg1, arg2);
+  }
+
+  function expectAroundedCallToOriginal() {
+    assert.calledOnce(original);
+    assert.calledOn(original, aroundContext);
+    assert.calledWithExactly(original, aroundArg, arg1, arg2);
+  }
+
+  function expectAroundedCallToTransform() {
+    assert.calledOnce(transform);
+    assert.calledOn(transform, context);
+    assert.calledWithExactly(transform, [toReturn, aroundReturn], arg1, arg2);
+  }
+
   //////////
 
   it("runs the before hook", () => {
@@ -55,6 +84,16 @@ describe("wrapFunction()", () => {
     expectProperCallToOriginal();
     expectProperCallToBefore();
     assert.callOrder(before, original);
+  });
+
+  it("runs the around hook", () => {
+    const wrapped = wrapFunction(original, { around });
+
+    const returned = wrapped.call(context, arg1, arg2);
+
+    expect(returned).toEqual([toReturn, aroundReturn]);
+    expectAroundedCallToOriginal();
+    expectProperCallToAround();
   });
 
   it("runs the transform hook", () => {
@@ -88,15 +127,21 @@ describe("wrapFunction()", () => {
     expectProperCallToOriginal();
   });
 
-  it("can run all the hooks", () => {
-    const wrapped = wrapFunction(original, { before, transform, after });
+  it("can run all the hooks at once", () => {
+    const wrapped = wrapFunction(original, {
+      before,
+      around,
+      transform,
+      after,
+    });
 
     const returned = wrapped.call(context, arg1, arg2);
 
     expect(returned).toBe(transformed);
-    expectProperCallToOriginal();
+    expectAroundedCallToOriginal();
     expectProperCallToBefore();
-    expectProperCallToTransform();
+    expectProperCallToAround();
+    expectAroundedCallToTransform();
     expectProperCallToAfter(transformed);
     assert.callOrder(before, original, transform, after);
   });
