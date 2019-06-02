@@ -1,11 +1,6 @@
-import { CallableObject } from "../../projects/s-js-utils/src/lib/callable-object";
+import { CallableObject } from "s-js-utils";
 
-export interface Multiplier {
-  // tslint:disable:callable-types
-  (value: number): number;
-}
-
-export class Multiplier extends CallableObject {
+export class Multiplier extends CallableObject<(value: number) => number> {
   constructor(public factor: number) {
     super((value: number) => value * this.factor);
   }
