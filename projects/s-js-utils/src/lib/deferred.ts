@@ -1,3 +1,5 @@
+import { wrapFunction } from "./wrap-function";
+
 /**
  * An object you can use to create a promise and resolve/reject it later.
  *
@@ -16,10 +18,21 @@ export class Deferred<T> {
   resolve!: (value: PromiseLike<T> | T) => void;
   reject!: (reason?: any) => void;
 
+  private pending = true;
+
   constructor() {
+    const hooks = {
+      before: () => {
+        this.pending = false;
+      },
+    };
     this.promise = new Promise<T>((resolve, reject) => {
-      this.resolve = resolve;
-      this.reject = reject;
+      this.resolve = wrapFunction(resolve, hooks);
+      this.reject = wrapFunction(reject, hooks);
     });
+  }
+
+  isPending() {
+    return this.pending;
   }
 }
