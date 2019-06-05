@@ -58,4 +58,32 @@ describe("Deferred", () => {
       }
     });
   });
+
+  describe(".isPending()", () => {
+    it("works when resolving", async () => {
+      const deferred = new Deferred<number>();
+      expect(deferred.isPending()).toBe(true);
+
+      deferred.resolve(1);
+      expect(deferred.isPending()).toBe(false);
+
+      await deferred.promise;
+      expect(deferred.isPending()).toBe(false);
+    });
+
+    it("works when rejecting", async () => {
+      const deferred = new Deferred<number>();
+      expect(deferred.isPending()).toBe(true);
+
+      deferred.reject();
+      expect(deferred.isPending()).toBe(false);
+
+      try {
+        await deferred.promise;
+        fail("should not reach here");
+      } catch {
+        expect(deferred.isPending()).toBe(false);
+      }
+    });
+  });
 });
