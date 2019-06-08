@@ -2,6 +2,7 @@
  * Public API Surface of s-js-utils
  */
 
+export * from "./lib/sets";
 export { CallableObject } from "./lib/callable-object";
 export { createBuilder } from "./lib/create-builder";
 export { Deferred } from "./lib/deferred";

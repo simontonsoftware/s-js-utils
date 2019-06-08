@@ -4,8 +4,14 @@ import {
   Deferred,
   isDefined,
   isEqualAtDepth,
+  isSetEqual,
+  isSuperset,
   roundToMultipleOf,
+  setDifference,
+  setIntersection,
+  setUnion,
   sleep,
+  symmetricSetDifference,
   elapsedToString,
   toCsv,
   wrapFunction,
@@ -21,7 +27,18 @@ export class AppComponent {
   title = "Failure";
 
   constructor() {
+    //
     // just use each function in the library once to prove we can import it
+    //
+
+    const set = new Set([]);
+    isSetEqual(set, set);
+    isSuperset(set, set);
+    setDifference(set, set);
+    setIntersection(set, set);
+    setUnion(set, set);
+    symmetricSetDifference(set, set);
+
     new Multiplier(2)(3); // uses CallableObject
     createBuilder(() => ({ text: "hi" }))();
     new Deferred().resolve(42);
