@@ -1,8 +1,7 @@
 import { last } from "micro-dash";
-import { ObjectWith } from "s-ng-dev-utils";
 import { roundToMultipleOf } from "./round-to-multiple-of";
 
-const nanoConversions: ObjectWith<number> = {};
+const nanoConversions: Record<string, number> = {};
 
 /**
  * Defines the canonical string representation for each time unit. Many aliases
