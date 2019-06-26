@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/simontonsoftware/s-js-utils/compare/v5.0.0...v5.1.0) (2019-06-26)
+
+### Bug Fixes
+
+- remove accidental dependency on `s-ng-dev-utils` ([1fb3dd1](https://github.com/simontonsoftware/s-js-utils/commit/1fb3dd1))
+
+### Features
+
+- add `around` hook to `wrapFunction()` ([1f04688](https://github.com/simontonsoftware/s-js-utils/commit/1f04688))
+- add several basic set operations (most from MDN) ([bc48896](https://github.com/simontonsoftware/s-js-utils/commit/bc48896))
+
 ## [5.0.0](https://github.com/simontonsoftware/s-js-utils/compare/v4.0.0...v5.0.0) (2019-05-30)
 
 ### chore
