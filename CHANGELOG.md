@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/simontonsoftware/s-js-utils/compare/v5.1.0...v5.2.0) (2019-07-17)
+
+### Features
+
+- add `Deferred.isPending()` ([7740d49](https://github.com/simontonsoftware/s-js-utils/commit/7740d49))
+- improve typing of `Deferred.resolve` ([977c5b4](https://github.com/simontonsoftware/s-js-utils/commit/977c5b4))
+
 ## [5.1.0](https://github.com/simontonsoftware/s-js-utils/compare/v5.0.0...v5.1.0) (2019-06-26)
 
 ### Bug Fixes
