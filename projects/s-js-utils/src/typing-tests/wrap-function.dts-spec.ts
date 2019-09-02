@@ -3,9 +3,9 @@ import { wrapFunction } from "../public-api";
 
 class O {}
 
-// $ExpectType (this: {}) => void
+// $ExpectType (this: unknown) => void
 wrapFunction(noop, {});
-// $ExpectType (this: {}, a1: string, a2: Date) => number
-wrapFunction((a1: string, a2: Date) => 1, {});
+// $ExpectType (this: unknown, _a1: string, _a2: Date) => number
+wrapFunction((_a1: string, _a2: Date) => 1, {});
 // $ExpectType (this: O) => void
 wrapFunction(function(this: O) {}, {});
