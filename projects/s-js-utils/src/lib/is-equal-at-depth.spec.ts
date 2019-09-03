@@ -86,13 +86,6 @@ describe("isEqualAtDepth()", () => {
     expectNeverEqual(array1, array2);
   });
 
-  it("should compare sparse arrays", () => {
-    const array = Array(1);
-    expectToBecomeEqualAtDepth(1, array, Array(1));
-
-    expectNeverEqual(array, Array(2));
-  });
-
   it("should compare plain objects", () => {
     let object1: object = { a: true, b: null, c: 1, d: "a", e: undefined };
     let object2: object = { a: true, b: null, c: 1, d: "a", e: undefined };
