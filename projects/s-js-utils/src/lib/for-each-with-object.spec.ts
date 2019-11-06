@@ -3,7 +3,7 @@ import { expectCallsAndReset } from "s-ng-dev-utils";
 import { forEachWithObject } from "./for-each-with-object";
 import createSpy = jasmine.createSpy;
 
-fdescribe("forEachWithObject()", () => {
+describe("forEachWithObject()", () => {
   it("works with arrays", () => {
     const result = forEachWithObject<number, Array<number>>(
       [1, 2, 3],

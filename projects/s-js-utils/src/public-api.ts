@@ -9,6 +9,7 @@ export { Deferred } from "./lib/deferred";
 export { forEachWithObject } from "./lib/for-each-with-object";
 export { isDefined } from "./lib/is-defined";
 export { isEqualAtDepth } from "./lib/is-equal-at-depth";
+export { mapToObject } from "./lib/map-to-object";
 export { roundToMultipleOf } from "./lib/round-to-multiple-of";
 export { sleep } from "./lib/sleep";
 export { TimeUnit, convertTime, elapsedToString } from "./lib/time-utils";
