@@ -2,10 +2,12 @@ import { Component } from "@angular/core";
 import {
   createBuilder,
   Deferred,
+  forEachWithObject,
   isDefined,
   isEqualAtDepth,
   isSetEqual,
   isSuperset,
+  mapAsKeys,
   roundToMultipleOf,
   setDifference,
   setIntersection,
@@ -15,8 +17,10 @@ import {
   elapsedToString,
   toCsv,
   wrapFunction,
+  mapToObject,
 } from "s-js-utils";
 import { Multiplier } from "./multiplier";
+import { identity, noop } from "micro-dash";
 
 @Component({
   selector: "app-root",
@@ -42,8 +46,11 @@ export class AppComponent {
     new Multiplier(2)(3); // uses CallableObject
     createBuilder(() => ({ text: "hi" }))();
     new Deferred().resolve(42);
+    forEachWithObject([], noop);
     isDefined(1);
     isEqualAtDepth(1, 1, 1);
+    mapAsKeys([], identity);
+    mapToObject([], () => ["a", 1]);
     roundToMultipleOf(2, 0);
     sleep(1000);
     elapsedToString(499, ["s"]); // from time-utils

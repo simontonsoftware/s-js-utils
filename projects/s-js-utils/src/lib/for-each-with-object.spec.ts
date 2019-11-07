@@ -1,7 +1,6 @@
 import { noop } from "micro-dash";
 import { expectCallsAndReset } from "s-ng-dev-utils";
 import { forEachWithObject } from "./for-each-with-object";
-import createSpy = jasmine.createSpy;
 
 describe("forEachWithObject()", () => {
   it("works with arrays", () => {
@@ -43,7 +42,7 @@ describe("forEachWithObject()", () => {
   });
 
   it("provides the right iteratee arguments", () => {
-    const spy = createSpy();
+    const spy = jasmine.createSpy();
     const accum = {};
 
     forEachWithObject([1, 2], spy, accum);

@@ -1,6 +1,5 @@
 import { expectCallsAndReset } from "s-ng-dev-utils";
 import { mapToObject } from "./map-to-object";
-import createSpy = jasmine.createSpy;
 
 describe("mapToObject()", () => {
   it("works with arrays", () => {
@@ -25,7 +24,7 @@ describe("mapToObject()", () => {
   });
 
   it("provides the right iteratee arguments", () => {
-    const spy = createSpy().and.returnValue(["a", 1]);
+    const spy = jasmine.createSpy().and.returnValue(["a", 1]);
 
     mapToObject([1, 2], spy);
     expectCallsAndReset(spy, [1, 0], [2, 1]);
