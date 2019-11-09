@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.3.0](https://github.com/simontonsoftware/s-js-utils/compare/v5.2.0...v5.3.0) (2019-11-09)
+
+### Features
+
+- add `forEachWithObject()` ([f165693](https://github.com/simontonsoftware/s-js-utils/commit/f165693))
+- add `mapAsKeys()` ([f80e70e](https://github.com/simontonsoftware/s-js-utils/commit/f80e70e))
+- add `mapToObject()` ([eeae081](https://github.com/simontonsoftware/s-js-utils/commit/eeae081))
+
 ## [5.2.0](https://github.com/simontonsoftware/s-js-utils/compare/v5.1.0...v5.2.0) (2019-07-17)
 
 ### Features
