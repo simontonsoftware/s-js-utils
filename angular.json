@@ -147,5 +147,8 @@
       }
     }
   },
-  "defaultProject": "s-js-utils-platform"
+  "defaultProject": "s-js-utils-platform",
+  "cli": {
+    "analytics": "48a3552f-2ced-4dd4-89f4-6e79684ade4c"
+  }
 }
