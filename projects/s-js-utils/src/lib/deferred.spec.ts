@@ -3,16 +3,6 @@ import { Deferred } from "./deferred";
 
 describe("Deferred", () => {
   describe(".resolve()", () => {
-    it("has good typing", () => {
-      new Deferred<void>().resolve();
-      new Deferred<string>().resolve("hi");
-      new Deferred<object>().reject();
-      new Deferred<number>().reject("bye");
-
-      // the test is just that the above compiles w/out errors
-      expect().nothing();
-    });
-
     it("uses the provided value", async () => {
       const deferred = new Deferred<number>();
       deferred.resolve(42);
