@@ -6,7 +6,6 @@ export * from "./lib/sets";
 export * from "./lib/time";
 export { CallableObject } from "./lib/callable-object";
 export { createBuilder } from "./lib/create-builder";
-export { forEachWithObject } from "./lib/for-each-with-object";
 export { isDefined } from "./lib/is-defined";
 export { isEqualAtDepth } from "./lib/is-equal-at-depth";
 export { mapAsKeys } from "./lib/map-as-keys";

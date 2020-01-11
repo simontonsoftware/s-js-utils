@@ -1,4 +1,4 @@
-import { forEachWithObject } from "./for-each-with-object";
+import { transform } from "micro-dash";
 import { ArrayIteratee, Nil, ObjectIteratee } from "./interfaces";
 
 /**
@@ -23,11 +23,8 @@ export function mapToObject<T, K extends keyof any, V>(
 ): { [k in K]?: V };
 
 export function mapToObject(collection: any, iteratee: any) {
-  return forEachWithObject(
-    collection,
-    (accumulator: any, origValue, keyOrIndex) => {
-      const [key, newValue] = iteratee(origValue, keyOrIndex);
-      accumulator[key] = newValue;
-    },
-  );
+  return transform(collection, (accumulator: any, origValue, keyOrIndex) => {
+    const [key, newValue] = iteratee(origValue, keyOrIndex);
+    accumulator[key] = newValue;
+  });
 }
