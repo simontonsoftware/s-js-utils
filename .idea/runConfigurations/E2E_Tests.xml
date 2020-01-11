@@ -1,10 +1,11 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="E2E Tests" type="js.build_tools.npm" factoryName="npm">
+  <configuration default="false" name="E2E Tests" type="js.build_tools.npm">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
       <script value="e2e" />
     </scripts>
+    <arguments value="--prod" />
     <node-interpreter value="project" />
     <envs />
     <method v="2" />

@@ -1,26 +1,27 @@
 import { Component } from "@angular/core";
+import { identity } from "micro-dash";
 import {
+  convertTime,
   createBuilder,
   Deferred,
-  forEachWithObject,
+  elapsedToString,
   isDefined,
   isEqualAtDepth,
   isSetEqual,
   isSuperset,
   mapAsKeys,
+  mapToObject,
   roundToMultipleOf,
   setDifference,
   setIntersection,
   setUnion,
   sleep,
   symmetricSetDifference,
-  elapsedToString,
+  TimeUnit,
   toCsv,
   wrapFunction,
-  mapToObject,
 } from "s-js-utils";
 import { Multiplier } from "./multiplier";
-import { identity, noop } from "micro-dash";
 
 @Component({
   selector: "app-root",
@@ -35,6 +36,7 @@ export class AppComponent {
     // just use each function in the library once to prove we can import it
     //
 
+    // sets
     const set = new Set([]);
     isSetEqual(set, set);
     isSuperset(set, set);
@@ -43,17 +45,25 @@ export class AppComponent {
     setUnion(set, set);
     symmetricSetDifference(set, set);
 
+    // time
+    new Deferred().resolve(42);
+    sleep(1000);
+    const conversion = convertTime(1, TimeUnit.Seconds, TimeUnit.Microseconds);
+    if (conversion !== 1000000) {
+      throw new Error(
+        `${conversion} !== 1000000 (this was a bug in production builds, where it was NaN)`,
+      );
+    }
+    elapsedToString(499, ["s"]);
+
+    // root
     new Multiplier(2)(3); // uses CallableObject
     createBuilder(() => ({ text: "hi" }))();
-    new Deferred().resolve(42);
-    forEachWithObject([], noop);
     isDefined(1);
     isEqualAtDepth(1, 1, 1);
     mapAsKeys([], identity);
     mapToObject([], () => ["a", 1]);
     roundToMultipleOf(2, 0);
-    sleep(1000);
-    elapsedToString(499, ["s"]); // from time-utils
     toCsv([["eats shoots and leaves", "eats, shoots, and leaves"]]);
     wrapFunction((a: number, b: number) => a + b, {});
 
