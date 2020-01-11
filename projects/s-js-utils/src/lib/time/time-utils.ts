@@ -1,5 +1,5 @@
 import { last } from "micro-dash";
-import { roundToMultipleOf } from "./round-to-multiple-of";
+import { roundToMultipleOf } from "../round-to-multiple-of";
 
 const nanoConversions: Record<string, number> = {};
 
