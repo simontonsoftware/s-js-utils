@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
-import { identity } from "micro-dash";
+import { identity, noop } from "micro-dash";
 import {
   convertTime,
   createBuilder,
+  Debouncer,
   Deferred,
   elapsedToString,
   isDefined,
@@ -46,6 +47,7 @@ export class AppComponent {
     symmetricSetDifference(set, set);
 
     // time
+    new Debouncer().run(noop);
     new Deferred().resolve(42);
     sleep(1000);
     const conversion = convertTime(1, TimeUnit.Seconds, TimeUnit.Microseconds);
