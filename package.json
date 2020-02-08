@@ -11,7 +11,7 @@
     "dtslint": "dtslint --expectOnly --localTs node_modules/typescript/lib projects/s-js-utils/src/typing-tests",
     "docs": "cd docs && typedoc ../projects/s-js-utils/src",
     "prettier-all": "prettier --write \"**/*.{html,js,json,md,scss,ts,yml}\"",
-    "release": "yarn docs && git add docs/* && standard-version --commit-all && yarn build s-js-utils"
+    "release": "yarn docs && git add docs/* && standard-version --commit-all && yarn build --prod s-js-utils"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +23,7 @@
     "@angular/platform-browser": "~9.0.0",
     "@angular/platform-browser-dynamic": "~9.0.0",
     "@angular/router": "~9.0.0",
-    "micro-dash": "~6.3.0",
+    "micro-dash": "^7.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -52,12 +52,12 @@
     "ng-packagr": "^9.0.0",
     "prettier": "^1.18.2",
     "protractor": "~5.4.3",
-    "s-ng-dev-utils": "^0.8.0",
-    "sinon": "^7.4.2",
+    "s-ng-dev-utils": "^1.0.0",
+    "sinon": "^8.1.1",
     "standard-version": "^7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
-    "typedoc": "^0.15.0",
+    "typedoc": "^0.16.9",
     "typescript": "~3.7.5"
   },
   "prettier": {
