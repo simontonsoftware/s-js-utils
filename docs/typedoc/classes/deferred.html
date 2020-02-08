@@ -874,6 +874,12 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
+		<li class=" tsd-kind-enum">
+			<a href="../enums/timeunit.html" class="tsd-kind-icon">Time<wbr>Unit</a>
+		</li>
+		<li class=" tsd-kind-class">
+			<a href="debouncer.html" class="tsd-kind-icon">Debouncer</a>
+		</li>
 		<li class="current tsd-kind-class tsd-has-type-parameter">
 			<a href="deferred.html" class="tsd-kind-icon">Deferred</a>
 			<ul>
@@ -893,6 +899,75 @@ img { max-width: 100%; }
 					<a href="deferred.html#ispending" class="tsd-kind-icon">is<wbr>Pending</a>
 				</li>
 			</ul>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#alldoublequotes" class="tsd-kind-icon">all<wbr>Double<wbr>Quotes</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#seq" class="tsd-kind-icon">seq</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#specialcsvcharactersregexp" class="tsd-kind-icon">special<wbr>Csv<wbr>Characters<wbr>Regexp</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#converttime" class="tsd-kind-icon">convert<wbr>Time</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="../index.html#createbuilder" class="tsd-kind-icon">create<wbr>Builder</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#elapsedtostring" class="tsd-kind-icon">elapsed<wbr>ToString</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#getnanoconversions" class="tsd-kind-icon">get<wbr>Nano<wbr>Conversions</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#isdefined" class="tsd-kind-icon">is<wbr>Defined</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#isequalatdepth" class="tsd-kind-icon">is<wbr>Equal<wbr>AtDepth</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#issetequal" class="tsd-kind-icon">is<wbr>Set<wbr>Equal</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#issuperset" class="tsd-kind-icon">is<wbr>Superset</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="../index.html#mapaskeys" class="tsd-kind-icon">map<wbr>AsKeys</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="../index.html#maptoobject" class="tsd-kind-icon">map<wbr>ToObject</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#roundtomultipleof" class="tsd-kind-icon">round<wbr>ToMultiple<wbr>Of</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="../index.html#setdifference" class="tsd-kind-icon">set<wbr>Difference</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="../index.html#setintersection" class="tsd-kind-icon">set<wbr>Intersection</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="../index.html#setunion" class="tsd-kind-icon">set<wbr>Union</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#sleep" class="tsd-kind-icon">sleep</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="../index.html#symmetricsetdifference" class="tsd-kind-icon">symmetric<wbr>Set<wbr>Difference</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#tocellstring" class="tsd-kind-icon">to<wbr>Cell<wbr>String</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#tocsv" class="tsd-kind-icon">to<wbr>Csv</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="../index.html#wrapfunction" class="tsd-kind-icon">wrap<wbr>Function</a>
+		</li>
+		<li class=" tsd-kind-object-literal">
+			<a href="../index.html#nanoconversions" class="tsd-kind-icon">nano<wbr>Conversions</a>
 		</li>
 	</ul>
 </nav>
@@ -967,7 +1042,7 @@ deferred.reject(<span class="hljs-string">'a bad value'</span>); <span class="hl
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L21">lib/deferred.ts:21</a></li>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time/deferred.ts#L21">time/deferred.ts:21</a></li>
 							</ul>
 						</aside>
 					</li>
@@ -982,7 +1057,7 @@ deferred.reject(<span class="hljs-string">'a bad value'</span>); <span class="hl
 				<div class="tsd-signature tsd-kind-icon">promise<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L17">lib/deferred.ts:17</a></li>
+						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time/deferred.ts#L17">time/deferred.ts:17</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -992,7 +1067,7 @@ deferred.reject(<span class="hljs-string">'a bad value'</span>); <span class="hl
 				<div class="tsd-signature tsd-kind-icon">reject<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L19">lib/deferred.ts:19</a></li>
+						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time/deferred.ts#L19">time/deferred.ts:19</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1002,7 +1077,7 @@ deferred.reject(<span class="hljs-string">'a bad value'</span>); <span class="hl
 				<div class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L18">lib/deferred.ts:18</a></li>
+						<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time/deferred.ts#L18">time/deferred.ts:18</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1019,7 +1094,7 @@ deferred.reject(<span class="hljs-string">'a bad value'</span>); <span class="hl
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/deferred.ts#L35">lib/deferred.ts:35</a></li>
+								<li>Defined in <a href="https://github.com/simontonsoftware/s-js-utils/blob/master/projects/s-js-utils/src/lib/time/deferred.ts#L35">time/deferred.ts:35</a></li>
 							</ul>
 						</aside>
 					</li>
@@ -1103,7 +1178,7 @@ f=/(at|bl|iz)$/,d=new RegExp("([^aeiouylsz])\\1$"),v=new RegExp("^"+o+i+"[^aeiou
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', 'UA-111611854-3', '');
+        ga('create', 'UA-111611854-3', 'auto');
         ga('send', 'pageview');
     </script>
 </body>

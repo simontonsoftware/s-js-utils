@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/simontonsoftware/s-js-utils/compare/v5.3.0...v6.0.0) (2020-02-08)
+
+### ⚠ BREAKING CHANGES
+
+- requires micro-dash 7
+- requires Typescript 3.7
+- `forEachWithObject()` is removed. Use `transform()` from micro-dash, instead; it is equivalent.
+- You must supply a type parameter to `CallableObject` now. On the bright side, you no longer need to define a separate interface for its subclasses!
+
+### Features
+
+- add `Debouncer` ([595e3c9](https://github.com/simontonsoftware/s-js-utils/commit/595e3c959bb1d9ce4506b4ba93a058bc9052c7d5))
+- better typing for `CallableObject` ([b1748bc](https://github.com/simontonsoftware/s-js-utils/commit/b1748bc63809ac8fd146cb67b5af81c14b77130d))
+
+### Bug Fixes
+
+- `convertTime()` was not working in a prod build. Closes [#13](https://github.com/simontonsoftware/s-js-utils/issues/13). ([f46de6d](https://github.com/simontonsoftware/s-js-utils/commit/f46de6dfa4017344b293aa5ff3bc5e27bdba8ddf))
+
+* remove `forEachWithObject()` ([6ca37e8](https://github.com/simontonsoftware/s-js-utils/commit/6ca37e8422249f2011c3837e260ba14997e282c0))
+* upgrade buildchain ([fdeb9b5](https://github.com/simontonsoftware/s-js-utils/commit/fdeb9b5f4d7199f1b855e6bd086ca8509ea1482d))
+* upgrade dependencies ([0adf6b4](https://github.com/simontonsoftware/s-js-utils/commit/0adf6b48e8fbc1ab619fcc5a4eeae92e338ff1f9))
+
 ## [5.3.0](https://github.com/simontonsoftware/s-js-utils/compare/v5.2.0...v5.3.0) (2019-11-09)
 
 ### Features
