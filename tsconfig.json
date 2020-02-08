@@ -17,8 +17,7 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
     "paths": {
-      "s-js-utils": ["dist/s-js-utils"],
-      "s-js-utils/*": ["dist/s-js-utils/*"]
+      "s-js-utils": ["dist/s-js-utils/s-js-utils", "dist/s-js-utils"]
     },
 
     //
