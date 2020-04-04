@@ -34,6 +34,7 @@ export enum TimeUnit {
   Millennia = "mil",
 }
 
+/** @hidden */
 const nanoConversions = {
   ...getNanoConversions(TimeUnit.Nanoseconds, "Nanosecond", 1, {
     aliases: ["nanos"],
@@ -145,6 +146,7 @@ export function elapsedToString(
   return tokens.join(" ");
 }
 
+/** @hidden */
 function getNanoConversions(
   unit: TimeUnit,
   singular: string,

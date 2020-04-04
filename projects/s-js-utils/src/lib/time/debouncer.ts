@@ -8,15 +8,15 @@
  * debouncer.run(print, 1000, 1);
  * await sleep(500);
  *
- * debounce.run(print, 1000, 2);
+ * debouncer.run(print, 1000, 2);
  * await sleep(1000); // prints "2"
  *
- * debounce.run(print, 0, 3);
- * debounce.run(print, 1000, 4);
+ * debouncer.run(print, 0, 3);
+ * debouncer.run(print, 1000, 4);
  * await sleep(500);
  *
- * debounce.run(print, 2000, 5);
- * debounce.run(print, 50, 6);
+ * debouncer.run(print, 2000, 5);
+ * debouncer.run(print, 50, 6);
  * await sleep(50); // prints "6"
  * ```
  */

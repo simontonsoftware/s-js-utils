@@ -1,3 +1,4 @@
+/** @hidden */
 let seq = 0;
 
 /**

@@ -20,9 +20,12 @@ export function toCsv(content: any[][]) {
     .join("\n");
 }
 
+/** @hidden */
 const specialCsvCharactersRegexp = /["|,|\n|\r]/;
+/** @hidden */
 const allDoubleQuotes = /"/g;
 
+/** @hidden */
 function toCellString(value: any) {
   const str = toString(value);
 
