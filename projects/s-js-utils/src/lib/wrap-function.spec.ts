@@ -1,76 +1,67 @@
+import { expectSingleCallAndReset } from "s-ng-dev-utils";
 import { wrapFunction } from "./wrap-function";
-import { assert, SinonStub, stub } from "sinon";
 
 describe("wrapFunction()", () => {
-  const context = Symbol("context");
+  const context = { context: Symbol("context") };
   const arg1 = Symbol("arg1");
   const arg2 = Symbol("arg2");
   const toReturn = Symbol("toReturn");
   const transformed = Symbol("transformed");
-  const aroundContext = Symbol("aroundContext");
+  const aroundContext = { context: Symbol("aroundContext") };
   const aroundArg = Symbol("aroundArg");
   const aroundReturn = Symbol("aroundReturn");
 
-  let original: SinonStub;
-  let around: SinonStub;
-  let before: SinonStub;
-  let transform: SinonStub;
-  let after: SinonStub;
+  let original: jasmine.Spy;
+  let around: jasmine.Spy;
+  let before: jasmine.Spy;
+  let transform: jasmine.Spy;
+  let after: jasmine.Spy;
 
   beforeEach(() => {
-    original = stub().returns(toReturn);
-    before = stub();
-    around = stub().callsFake(function(
-      this: any,
-      orig: Function,
-      ...args: any[]
-    ) {
-      return [orig.call(aroundContext, aroundArg, ...args), aroundReturn];
-    });
-    transform = stub().returns(transformed);
-    after = stub();
+    original = jasmine.createSpy().and.returnValue(toReturn);
+    before = jasmine.createSpy();
+    around = jasmine
+      .createSpy()
+      .and.callFake(function(this: any, orig: Function, ...args: any[]) {
+        return [orig.call(aroundContext, aroundArg, ...args), aroundReturn];
+      });
+    transform = jasmine.createSpy().and.returnValue(transformed);
+    after = jasmine.createSpy();
   });
 
   function expectProperCallToOriginal() {
-    assert.calledOnce(original);
-    assert.calledOn(original, context);
-    assert.calledWithExactly(original, arg1, arg2);
+    expect(original.calls.first().object).toBe(context);
+    expectSingleCallAndReset(original, arg1, arg2);
   }
 
   function expectProperCallToBefore() {
-    assert.calledOnce(before);
-    assert.calledOn(before, context);
-    assert.calledWithExactly(before, arg1, arg2);
+    expect(before.calls.first().object).toBe(context);
+    expectSingleCallAndReset(before, arg1, arg2);
   }
 
   function expectProperCallToTransform() {
-    assert.calledOnce(transform);
-    assert.calledOn(transform, context);
-    assert.calledWithExactly(transform, toReturn, arg1, arg2);
+    expect(transform.calls.first().object).toBe(context);
+    expectSingleCallAndReset(transform, toReturn, arg1, arg2);
   }
 
   function expectProperCallToAfter(result: symbol) {
-    assert.calledOnce(after);
-    assert.calledOn(after, context);
-    assert.calledWithExactly(after, result, arg1, arg2);
+    expect(after.calls.first().object).toBe(context);
+    expectSingleCallAndReset(after, result, arg1, arg2);
   }
 
   function expectProperCallToAround() {
-    assert.calledOnce(around);
-    assert.calledOn(around, context);
-    assert.calledWithExactly(around, original, arg1, arg2);
+    expect(around.calls.first().object).toBe(context);
+    expectSingleCallAndReset(around, original, arg1, arg2);
   }
 
   function expectAroundedCallToOriginal() {
-    assert.calledOnce(original);
-    assert.calledOn(original, aroundContext);
-    assert.calledWithExactly(original, aroundArg, arg1, arg2);
+    expect(original.calls.first().object).toBe(aroundContext);
+    expectSingleCallAndReset(original, aroundArg, arg1, arg2);
   }
 
   function expectAroundedCallToTransform() {
-    assert.calledOnce(transform);
-    assert.calledOn(transform, context);
-    assert.calledWithExactly(transform, [toReturn, aroundReturn], arg1, arg2);
+    expect(transform.calls.first().object).toBe(context);
+    expectSingleCallAndReset(transform, [toReturn, aroundReturn], arg1, arg2);
   }
 
   //////////
@@ -81,9 +72,9 @@ describe("wrapFunction()", () => {
     const returned = wrapped.call(context, arg1, arg2);
 
     expect(returned).toBe(toReturn);
+    expect(before).toHaveBeenCalledBefore(original);
     expectProperCallToOriginal();
     expectProperCallToBefore();
-    assert.callOrder(before, original);
   });
 
   it("runs the around hook", () => {
@@ -102,9 +93,9 @@ describe("wrapFunction()", () => {
     const returned = wrapped.call(context, arg1, arg2);
 
     expect(returned).toBe(transformed);
+    expect(original).toHaveBeenCalledBefore(transform);
     expectProperCallToOriginal();
     expectProperCallToTransform();
-    assert.callOrder(original, transform);
   });
 
   it("runs the after hook", () => {
@@ -113,9 +104,9 @@ describe("wrapFunction()", () => {
     const returned = wrapped.call(context, arg1, arg2);
 
     expect(returned).toBe(toReturn);
+    expect(original).toHaveBeenCalledBefore(after);
     expectProperCallToOriginal();
     expectProperCallToAfter(toReturn);
-    assert.callOrder(original, after);
   });
 
   it("does not require hooks", () => {
@@ -138,12 +129,14 @@ describe("wrapFunction()", () => {
     const returned = wrapped.call(context, arg1, arg2);
 
     expect(returned).toBe(transformed);
+    expect(before).toHaveBeenCalledBefore(original);
+    expect(original).toHaveBeenCalledBefore(transform);
+    expect(transform).toHaveBeenCalledBefore(after);
     expectAroundedCallToOriginal();
     expectProperCallToBefore();
     expectProperCallToAround();
     expectAroundedCallToTransform();
     expectProperCallToAfter(transformed);
-    assert.callOrder(before, original, transform, after);
   });
 
   it("preserves arity", () => {
