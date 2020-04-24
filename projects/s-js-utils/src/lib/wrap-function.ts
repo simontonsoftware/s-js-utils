@@ -20,12 +20,7 @@
  */
 export function wrapFunction<A extends any[], R, T>(
   original: (this: T, ...args: A) => R,
-  {
-    before,
-    around,
-    transform,
-    after,
-  }: {
+  hooks: {
     before?: (this: T, ...args: A) => void;
     around?: (this: T, fn: (...args: A) => R, ...args: A) => R;
     transform?: (this: T, result: R, ...args: A) => R;
@@ -33,23 +28,26 @@ export function wrapFunction<A extends any[], R, T>(
   },
 ): (this: T, ...args: A) => R {
   const wrapped = function(this: T, ...args: A) {
-    if (before) {
-      before.apply(this, args);
-    }
     let result: R;
-    if (around) {
-      result = (around as any).call(this, original, ...args);
+    callHook(hooks.before, this, args);
+    if (hooks.around) {
+      result = (hooks.around as any).call(this, original, ...args);
     } else {
       result = original.apply(this, args);
     }
-    if (transform) {
-      result = (transform as any).call(this, result, ...args);
-    }
-    if (after) {
-      (after as any).call(this, result, ...args);
-    }
+    result = callHook(hooks.transform, this, [result, ...args], result);
+    callHook(hooks.after, this, [result, ...args]);
     return result;
   };
   Object.defineProperty(wrapped, "length", { value: original.length });
   return wrapped;
+}
+
+function callHook(
+  hook: Function | undefined,
+  context: any,
+  args: any[],
+  defaultResult?: any,
+) {
+  return hook ? hook.apply(context, args) : defaultResult;
 }

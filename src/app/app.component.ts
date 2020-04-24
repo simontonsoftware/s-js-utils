@@ -24,6 +24,8 @@ import {
 } from "s-js-utils";
 import { Multiplier } from "./multiplier";
 
+/* eslint-disable */
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",

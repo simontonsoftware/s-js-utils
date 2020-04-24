@@ -30,6 +30,11 @@ export function isEqualAtDepth(depth: number, value: any, other: any) {
   if (depth === 0 || !(value instanceof Object && other instanceof Object)) {
     return false;
   }
+  return hasSameValues(depth, value, other);
+}
+
+/** @hidden */
+function hasSameValues(depth: number, value: any, other: any) {
   for (const key of keys(value)) {
     if (!other.hasOwnProperty(key)) {
       return false;

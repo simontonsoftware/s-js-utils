@@ -132,17 +132,15 @@ export function elapsedToString(
 
   let showZeros = showLeadingZeros;
   const tokens: Array<number | string> = [];
-  for (let i = 0; i < units.length; ++i) {
-    const unit = units[i];
+  units.forEach((unit, i) => {
     const conversion = convertTime(1, elapsedUnit, unit);
     const value = Math.floor(elapsed * conversion);
     if (value > 0 || showZeros || i === units.length - 1) {
-      tokens.push(value);
-      tokens.push(unit);
+      tokens.push(value, unit);
       showZeros = true;
     }
     elapsed -= value / conversion;
-  }
+  });
   return tokens.join(" ");
 }
 
