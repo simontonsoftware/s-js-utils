@@ -13,3 +13,4 @@ export { mapToObject } from "./lib/map-to-object";
 export { roundToMultipleOf } from "./lib/round-to-multiple-of";
 export { toCsv } from "./lib/to-csv";
 export { wrapFunction } from "./lib/wrap-function";
+export { wrapMethod } from "./lib/wrap-method";

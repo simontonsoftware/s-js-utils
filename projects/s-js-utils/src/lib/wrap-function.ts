@@ -1,3 +1,11 @@
+/** @hidden */
+export interface Hooks<A extends any[], R, T> {
+  before?: (this: T, ...args: A) => void;
+  around?: (this: T, fn: (...args: A) => R, ...args: A) => R;
+  transform?: (this: T, result: R, ...args: A) => R;
+  after?: (this: T, result: R, ...args: A) => void;
+}
+
 /**
  * Returns a new function to use in place of `func` that will call the provided hooks in addition to `func`. They are called in the following order:
  *
@@ -20,12 +28,7 @@
  */
 export function wrapFunction<A extends any[], R, T>(
   original: (this: T, ...args: A) => R,
-  hooks: {
-    before?: (this: T, ...args: A) => void;
-    around?: (this: T, fn: (...args: A) => R, ...args: A) => R;
-    transform?: (this: T, result: R, ...args: A) => R;
-    after?: (this: T, result: R, ...args: A) => void;
-  },
+  hooks: Hooks<A, R, T>,
 ): (this: T, ...args: A) => R {
   const wrapped = function(this: T, ...args: A) {
     let result: R;
@@ -43,6 +46,7 @@ export function wrapFunction<A extends any[], R, T>(
   return wrapped;
 }
 
+/** @hidden */
 function callHook(
   hook: Function | undefined,
   context: any,

@@ -21,6 +21,7 @@ import {
   TimeUnit,
   toCsv,
   wrapFunction,
+  wrapMethod,
 } from "s-js-utils";
 import { Multiplier } from "./multiplier";
 
@@ -70,6 +71,7 @@ export class AppComponent {
     roundToMultipleOf(2, 0);
     toCsv([["eats shoots and leaves", "eats, shoots, and leaves"]]);
     wrapFunction((a: number, b: number) => a + b, {});
+    wrapMethod({ a() {} }, "a", {});
 
     this.title = "s-js-utils-platform";
   }
