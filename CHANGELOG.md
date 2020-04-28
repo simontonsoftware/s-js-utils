@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.2.0](https://github.com/simontonsoftware/s-js-utils/compare/v6.1.0...v6.2.0) (2020-04-28)
+
+### Features
+
+- add `assert()` ([7890682](https://github.com/simontonsoftware/s-js-utils/commit/789068286cdfe43d6d6886a74584191271ac8aa7))
+
 ## [6.1.0](https://github.com/simontonsoftware/s-js-utils/compare/v6.0.0...v6.1.0) (2020-04-25)
 
 ### Features
