@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { identity, noop } from "micro-dash";
 import {
+  assert,
   convertTime,
   createBuilder,
   Debouncer,
@@ -62,6 +63,7 @@ export class AppComponent {
     elapsedToString(499, ["s"]);
 
     // root
+    assert(true);
     new Multiplier(2)(3); // uses CallableObject
     createBuilder(() => ({ text: "hi" }))();
     isDefined(1);

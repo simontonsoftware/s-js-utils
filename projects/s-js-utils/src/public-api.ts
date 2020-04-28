@@ -4,6 +4,7 @@
 
 export * from "./lib/sets";
 export * from "./lib/time";
+export { assert } from "./lib/assert";
 export { CallableObject } from "./lib/callable-object";
 export { createBuilder } from "./lib/create-builder";
 export { isDefined } from "./lib/is-defined";
