@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.2.1](https://github.com/simontonsoftware/s-js-utils/compare/v6.2.0...v6.2.1) (2020-05-04)
+
+### Bug Fixes
+
+- typing of `wrapMethod()` incorrectly determined which method was wrapped ([0ddb0f5](https://github.com/simontonsoftware/s-js-utils/commit/0ddb0f59a709882f314ca5db74b29f7811aac94c))
+
 ## [6.2.0](https://github.com/simontonsoftware/s-js-utils/compare/v6.1.0...v6.2.0) (2020-04-28)
 
 ### Features
