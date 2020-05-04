@@ -26,13 +26,16 @@ import { wrapFunction, Hooks } from "./wrap-function";
  * unwrap();
  * ```
  */
-export function wrapMethod<K extends keyof any, A extends any[], R, T>(
-  object: { [k in K]: (this: T, ...args: A) => R },
+export function wrapMethod<
+  K extends keyof any,
+  O extends { [k in K]: (...args: any) => any }
+>(
+  object: O,
   key: K,
-  hooks: Hooks<A, R, T>,
+  hooks: Hooks<Parameters<O[K]>, ReturnType<O[K]>, ThisType<O[K]>>,
 ) {
   const original = object[key];
-  object[key] = wrapFunction(original, hooks);
+  object[key] = wrapFunction(original, hooks) as O[K];
   return () => {
     object[key] = original;
   };
