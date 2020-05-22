@@ -1,7 +1,7 @@
-import { Deferred } from "../public-api";
+import { Deferred } from '../public-api';
 
 // No actual type expectations here, just that there are no compile errors
 new Deferred<void>().resolve();
-new Deferred<string>().resolve("hi");
+new Deferred<string>().resolve('hi');
 new Deferred<object>().reject();
-new Deferred<number>().reject("bye");
+new Deferred<number>().reject('bye');

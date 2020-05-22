@@ -1,4 +1,4 @@
-import { wrapFunction, Hooks } from "./wrap-function";
+import { wrapFunction, Hooks } from './wrap-function';
 
 /**
  * Replaces a method on `object` with a wrapped version that will call the provided hooks in addition to the original method. See `wrapFunction()` for more details on the hooks.

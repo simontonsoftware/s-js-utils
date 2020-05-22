@@ -42,7 +42,7 @@ export function wrapFunction<A extends any[], R, T>(
     callHook(hooks.after, this, [result, ...args]);
     return result;
   };
-  Object.defineProperty(wrapped, "length", { value: original.length });
+  Object.defineProperty(wrapped, 'length', { value: original.length });
   return wrapped;
 }
 

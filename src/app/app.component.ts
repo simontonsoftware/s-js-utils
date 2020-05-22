@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { identity, noop } from "micro-dash";
+import { Component } from '@angular/core';
+import { identity, noop } from 'micro-dash';
 import {
   assert,
   convertTime,
@@ -23,18 +23,18 @@ import {
   toCsv,
   wrapFunction,
   wrapMethod,
-} from "s-js-utils";
-import { Multiplier } from "./multiplier";
+} from 's-js-utils';
+import { Multiplier } from './multiplier';
 
 /* eslint-disable */
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = "Failure";
+  title = 'Failure';
 
   constructor() {
     //
@@ -60,21 +60,21 @@ export class AppComponent {
         `${conversion} !== 1000000 (this was a bug in production builds, where it was NaN)`,
       );
     }
-    elapsedToString(499, ["s"]);
+    elapsedToString(499, ['s']);
 
     // root
     assert(true);
     new Multiplier(2)(3); // uses CallableObject
-    createBuilder(() => ({ text: "hi" }))();
+    createBuilder(() => ({ text: 'hi' }))();
     isDefined(1);
     isEqualAtDepth(1, 1, 1);
     mapAsKeys([], identity);
-    mapToObject([], () => ["a", 1]);
+    mapToObject([], () => ['a', 1]);
     roundToMultipleOf(2, 0);
-    toCsv([["eats shoots and leaves", "eats, shoots, and leaves"]]);
+    toCsv([['eats shoots and leaves', 'eats, shoots, and leaves']]);
     wrapFunction((a: number, b: number) => a + b, {});
-    wrapMethod({ a() {} }, "a", {});
+    wrapMethod({ a() {} }, 'a', {});
 
-    this.title = "s-js-utils-platform";
+    this.title = 's-js-utils-platform';
   }
 }

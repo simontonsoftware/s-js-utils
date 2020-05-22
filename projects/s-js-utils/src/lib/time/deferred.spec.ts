@@ -1,15 +1,15 @@
-import { expectSingleCallAndReset } from "s-ng-dev-utils";
-import { Deferred } from "./deferred";
+import { expectSingleCallAndReset } from 's-ng-dev-utils';
+import { Deferred } from './deferred';
 
-describe("Deferred", () => {
-  describe(".resolve()", () => {
-    it("uses the provided value", async () => {
+describe('Deferred', () => {
+  describe('.resolve()', () => {
+    it('uses the provided value', async () => {
       const deferred = new Deferred<number>();
       deferred.resolve(42);
       expect(await deferred.promise).toBe(42);
     });
 
-    it("runs success callback on the micro queue", async () => {
+    it('runs success callback on the micro queue', async () => {
       const deferred = new Deferred<boolean>();
       let resolved = false;
       deferred.promise.then(() => (resolved = true));
@@ -21,19 +21,19 @@ describe("Deferred", () => {
     });
   });
 
-  describe(".reject()", () => {
-    it("uses the provided value", async () => {
+  describe('.reject()', () => {
+    it('uses the provided value', async () => {
       const deferred = new Deferred<number>();
-      deferred.reject("some error");
+      deferred.reject('some error');
       try {
         await deferred.promise;
-        fail("should not reach here");
+        fail('should not reach here');
       } catch (ex) {
-        expect(ex).toBe("some error");
+        expect(ex).toBe('some error');
       }
     });
 
-    it("runs error callback on the micro queue", async () => {
+    it('runs error callback on the micro queue', async () => {
       const deferred = new Deferred<boolean>();
       const spy = jasmine.createSpy();
       deferred.promise.catch(spy);
@@ -42,15 +42,15 @@ describe("Deferred", () => {
       expect(spy).not.toHaveBeenCalled();
       try {
         await deferred.promise;
-        fail("should not reach here");
+        fail('should not reach here');
       } catch {
         expectSingleCallAndReset(spy, undefined);
       }
     });
   });
 
-  describe(".isPending()", () => {
-    it("works when resolving", async () => {
+  describe('.isPending()', () => {
+    it('works when resolving', async () => {
       const deferred = new Deferred<number>();
       expect(deferred.isPending()).toBe(true);
 
@@ -61,7 +61,7 @@ describe("Deferred", () => {
       expect(deferred.isPending()).toBe(false);
     });
 
-    it("works when rejecting", async () => {
+    it('works when rejecting', async () => {
       const deferred = new Deferred<number>();
       expect(deferred.isPending()).toBe(true);
 
@@ -70,7 +70,7 @@ describe("Deferred", () => {
 
       try {
         await deferred.promise;
-        fail("should not reach here");
+        fail('should not reach here');
       } catch {
         expect(deferred.isPending()).toBe(false);
       }

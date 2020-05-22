@@ -1,15 +1,15 @@
-import { expectSingleCallAndReset } from "s-ng-dev-utils";
-import { wrapFunction } from "./wrap-function";
+import { expectSingleCallAndReset } from 's-ng-dev-utils';
+import { wrapFunction } from './wrap-function';
 
-describe("wrapFunction()", () => {
-  const context = { context: Symbol("context") };
-  const arg1 = Symbol("arg1");
-  const arg2 = Symbol("arg2");
-  const toReturn = Symbol("toReturn");
-  const transformed = Symbol("transformed");
-  const aroundContext = { context: Symbol("aroundContext") };
-  const aroundArg = Symbol("aroundArg");
-  const aroundReturn = Symbol("aroundReturn");
+describe('wrapFunction()', () => {
+  const context = { context: Symbol('context') };
+  const arg1 = Symbol('arg1');
+  const arg2 = Symbol('arg2');
+  const toReturn = Symbol('toReturn');
+  const transformed = Symbol('transformed');
+  const aroundContext = { context: Symbol('aroundContext') };
+  const aroundArg = Symbol('aroundArg');
+  const aroundReturn = Symbol('aroundReturn');
 
   let original: jasmine.Spy;
   let around: jasmine.Spy;
@@ -66,7 +66,7 @@ describe("wrapFunction()", () => {
 
   //////////
 
-  it("runs the before hook", () => {
+  it('runs the before hook', () => {
     const wrapped = wrapFunction(original, { before });
 
     const returned = wrapped.call(context, arg1, arg2);
@@ -77,7 +77,7 @@ describe("wrapFunction()", () => {
     expectProperCallToBefore();
   });
 
-  it("runs the around hook", () => {
+  it('runs the around hook', () => {
     const wrapped = wrapFunction(original, { around });
 
     const returned = wrapped.call(context, arg1, arg2);
@@ -87,7 +87,7 @@ describe("wrapFunction()", () => {
     expectProperCallToAround();
   });
 
-  it("runs the transform hook", () => {
+  it('runs the transform hook', () => {
     const wrapped = wrapFunction(original, { transform });
 
     const returned = wrapped.call(context, arg1, arg2);
@@ -98,7 +98,7 @@ describe("wrapFunction()", () => {
     expectProperCallToTransform();
   });
 
-  it("runs the after hook", () => {
+  it('runs the after hook', () => {
     const wrapped = wrapFunction(original, { after });
 
     const returned = wrapped.call(context, arg1, arg2);
@@ -109,7 +109,7 @@ describe("wrapFunction()", () => {
     expectProperCallToAfter(toReturn);
   });
 
-  it("does not require hooks", () => {
+  it('does not require hooks', () => {
     const wrapped = wrapFunction(original, {});
 
     const returned = wrapped.call(context, arg1, arg2);
@@ -118,7 +118,7 @@ describe("wrapFunction()", () => {
     expectProperCallToOriginal();
   });
 
-  it("can run all the hooks at once", () => {
+  it('can run all the hooks at once', () => {
     const wrapped = wrapFunction(original, {
       before,
       around,
@@ -139,7 +139,7 @@ describe("wrapFunction()", () => {
     expectProperCallToAfter(transformed);
   });
 
-  it("preserves arity", () => {
+  it('preserves arity', () => {
     expect(wrapFunction((a: number, b: number) => a + b, {}).length).toBe(2);
   });
 });

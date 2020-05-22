@@ -1,6 +1,6 @@
-import { last } from "micro-dash";
-import { mapAsKeys } from "../objects/map-as-keys";
-import { roundToMultipleOf } from "../round-to-multiple-of";
+import { last } from 'micro-dash';
+import { mapAsKeys } from '../objects/map-as-keys';
+import { roundToMultipleOf } from '../round-to-multiple-of';
 
 /**
  * Defines the canonical string representation for each time unit. Many aliases
@@ -20,80 +20,80 @@ import { roundToMultipleOf } from "../round-to-multiple-of";
  * - mil, Millennium, Millennia, millennium, millennia
  */
 export enum TimeUnit {
-  Nanoseconds = "ns",
-  Microseconds = "μs",
-  Milliseconds = "ms",
-  Seconds = "s",
-  Minutes = "m",
-  Hours = "h",
-  Days = "d",
-  Weeks = "w",
-  Years = "y",
-  Decades = "dec",
-  Centuries = "cent",
-  Millennia = "mil",
+  Nanoseconds = 'ns',
+  Microseconds = 'μs',
+  Milliseconds = 'ms',
+  Seconds = 's',
+  Minutes = 'm',
+  Hours = 'h',
+  Days = 'd',
+  Weeks = 'w',
+  Years = 'y',
+  Decades = 'dec',
+  Centuries = 'cent',
+  Millennia = 'mil',
 }
 
 /** @hidden */
 const nanoConversions = {
-  ...getNanoConversions(TimeUnit.Nanoseconds, "Nanosecond", 1, {
-    aliases: ["nanos"],
+  ...getNanoConversions(TimeUnit.Nanoseconds, 'Nanosecond', 1, {
+    aliases: ['nanos'],
   }),
-  ...getNanoConversions(TimeUnit.Microseconds, "Microsecond", 1000, {
-    aliases: ["micros"],
+  ...getNanoConversions(TimeUnit.Microseconds, 'Microsecond', 1000, {
+    aliases: ['micros'],
   }),
-  ...getNanoConversions(TimeUnit.Milliseconds, "Millisecond", 1000 * 1000, {
-    aliases: ["millis"],
+  ...getNanoConversions(TimeUnit.Milliseconds, 'Millisecond', 1000 * 1000, {
+    aliases: ['millis'],
   }),
-  ...getNanoConversions(TimeUnit.Seconds, "Second", 1000 * 1000 * 1000, {
-    aliases: ["S", "sec", "secs"],
+  ...getNanoConversions(TimeUnit.Seconds, 'Second', 1000 * 1000 * 1000, {
+    aliases: ['S', 'sec', 'secs'],
   }),
-  ...getNanoConversions(TimeUnit.Minutes, "Minute", 60 * 1000 * 1000 * 1000, {
-    aliases: ["M", "min", "mins"],
+  ...getNanoConversions(TimeUnit.Minutes, 'Minute', 60 * 1000 * 1000 * 1000, {
+    aliases: ['M', 'min', 'mins'],
   }),
-  ...getNanoConversions(TimeUnit.Hours, "Hour", 60 * 60 * 1000 * 1000 * 1000, {
-    aliases: ["H", "hr", "hrs"],
+  ...getNanoConversions(TimeUnit.Hours, 'Hour', 60 * 60 * 1000 * 1000 * 1000, {
+    aliases: ['H', 'hr', 'hrs'],
   }),
   ...getNanoConversions(
     TimeUnit.Days,
-    "Day",
+    'Day',
     24 * 60 * 60 * 1000 * 1000 * 1000,
     {
-      aliases: ["D"],
+      aliases: ['D'],
     },
   ),
   ...getNanoConversions(
     TimeUnit.Weeks,
-    "Week",
+    'Week',
     7 * 24 * 60 * 60 * 1000 * 1000 * 1000,
     {
-      aliases: ["W", "wk", "wks"],
+      aliases: ['W', 'wk', 'wks'],
     },
   ),
   ...getNanoConversions(
     TimeUnit.Years,
-    "Year",
+    'Year',
     365 * 24 * 60 * 60 * 1000 * 1000 * 1000,
     {
-      aliases: ["Y", "yr", "yrs"],
+      aliases: ['Y', 'yr', 'yrs'],
     },
   ),
   ...getNanoConversions(
     TimeUnit.Decades,
-    "Decade",
+    'Decade',
     10 * 365 * 24 * 60 * 60 * 1000 * 1000 * 1000,
   ),
   ...getNanoConversions(
     TimeUnit.Centuries,
-    "Century",
+    'Century',
     100 * 365 * 24 * 60 * 60 * 1000 * 1000 * 1000,
-    { plural: "Centuries" },
+    { plural: 'Centuries' },
   ),
   ...getNanoConversions(
     TimeUnit.Millennia,
-    "Millennium",
+    'Millennium',
     1000 * 365 * 24 * 60 * 60 * 1000 * 1000 * 1000,
-    { plural: "Millennia" },
+    { plural: 'Millennia' },
   ),
 };
 
@@ -141,7 +141,7 @@ export function elapsedToString(
     }
     elapsed -= value / conversion;
   });
-  return tokens.join(" ");
+  return tokens.join(' ');
 }
 
 /** @hidden */
@@ -149,7 +149,7 @@ function getNanoConversions(
   unit: TimeUnit,
   singular: string,
   nanos: number,
-  { aliases = [] as string[], plural = singular + "s" } = {},
+  { aliases = [] as string[], plural = singular + 's' } = {},
 ) {
   return mapAsKeys(
     [

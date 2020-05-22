@@ -1,4 +1,4 @@
-import { CallableObject } from "./callable-object";
+import { CallableObject } from './callable-object';
 
 class Multiplier extends CallableObject<(value: number) => number> {
   constructor(public factor: number) {
@@ -6,14 +6,14 @@ class Multiplier extends CallableObject<(value: number) => number> {
   }
 }
 
-describe("CallableObject", () => {
-  it("is callable", () => {
+describe('CallableObject', () => {
+  it('is callable', () => {
     const multiplier = new Multiplier(2);
     expect(multiplier(2)).toBe(4);
     expect(multiplier(3)).toBe(6);
   });
 
-  it("still has remaining typings", () => {
+  it('still has remaining typings', () => {
     const multiplier = new Multiplier(2);
     expect(multiplier(2)).toBe(4);
 

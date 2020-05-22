@@ -1,4 +1,4 @@
-import { toString } from "micro-dash";
+import { toString } from 'micro-dash';
 
 /**
  * Converts a 2D array to a csv string. Values are converted using micro-dash's `toString()`.
@@ -16,8 +16,8 @@ import { toString } from "micro-dash";
  */
 export function toCsv(content: any[][]) {
   return content
-    .map((row) => row.map((cell) => toCellString(cell)).join(","))
-    .join("\n");
+    .map((row) => row.map((cell) => toCellString(cell)).join(','))
+    .join('\n');
 }
 
 /** @hidden */

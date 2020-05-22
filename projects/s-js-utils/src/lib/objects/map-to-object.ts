@@ -1,5 +1,5 @@
-import { transform } from "micro-dash";
-import { ArrayIteratee, Nil, ObjectIteratee } from "../interfaces";
+import { transform } from 'micro-dash';
+import { ArrayIteratee, Nil, ObjectIteratee } from '../interfaces';
 
 /**
  * Maps `collection` a new object, with keys and values determined by `iteratee`.

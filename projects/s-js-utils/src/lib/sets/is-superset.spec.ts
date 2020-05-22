@@ -1,7 +1,7 @@
-import { isSuperset } from "./is-superset";
+import { isSuperset } from './is-superset';
 
-describe("isSuperset()", () => {
-  it("works", () => {
+describe('isSuperset()', () => {
+  it('works', () => {
     const setA = new Set([1, 2, 3, 4]);
     const setB = new Set([3, 4]);
     expect(isSuperset(setA, setB)).toBe(true);

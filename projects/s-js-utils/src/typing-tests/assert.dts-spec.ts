@@ -1,7 +1,7 @@
-import { identity, isString } from "micro-dash";
-import { assert } from "../public-api";
+import { identity, isString } from 'micro-dash';
+import { assert } from '../public-api';
 
-const v = "" as string | Date;
+const v = '' as string | Date;
 // $ExpectType string | Date
 identity(v);
 

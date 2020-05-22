@@ -1,4 +1,4 @@
-import { Debouncer } from "../public-api";
+import { Debouncer } from '../public-api';
 
 const debouncer = new Debouncer();
 
@@ -9,4 +9,4 @@ debouncer.run((a: string) => {}, 12);
 // $ExpectError
 debouncer.run((a: string) => {}, 12, 34);
 // $ExpectError
-debouncer.run((a: string) => {}, 12, "hi", 23);
+debouncer.run((a: string) => {}, 12, 'hi', 23);

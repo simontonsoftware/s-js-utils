@@ -1,7 +1,7 @@
-import { isSetEqual } from "./is-set-equal";
+import { isSetEqual } from './is-set-equal';
 
-describe("isSetEqual()", () => {
-  it("works", () => {
+describe('isSetEqual()', () => {
+  it('works', () => {
     const setA = new Set([1, 2, 3]);
     const empty = new Set([]);
 

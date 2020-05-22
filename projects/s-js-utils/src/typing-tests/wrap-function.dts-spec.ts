@@ -1,5 +1,5 @@
-import { noop } from "micro-dash";
-import { wrapFunction } from "../public-api";
+import { noop } from 'micro-dash';
+import { wrapFunction } from '../public-api';
 
 class O {
   id = 1;
@@ -38,7 +38,7 @@ wrapFunction(f, {
 wrapFunction(f, {
   // $ExpectError
   transform(_r, _a1, _a2) {
-    return "1";
+    return '1';
   },
 });
 wrapFunction(f, {

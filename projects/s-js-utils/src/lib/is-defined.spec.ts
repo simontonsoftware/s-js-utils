@@ -1,7 +1,7 @@
-import { isDefined } from "./is-defined";
+import { isDefined } from './is-defined';
 
-describe("isDefined()", () => {
-  it("works", () => {
+describe('isDefined()', () => {
+  it('works', () => {
     // tslint:disable-next-line:only-arrow-functions
     const args = (function(..._: any[]) {
       return arguments;
@@ -13,7 +13,7 @@ describe("isDefined()", () => {
     expect(isDefined(false)).toBe(true);
     expect(isDefined(0)).toBe(true);
     expect(isDefined(NaN)).toBe(true);
-    expect(isDefined("")).toBe(true);
+    expect(isDefined('')).toBe(true);
 
     // all the other things
     expect(isDefined(args)).toBe(true);
@@ -25,7 +25,7 @@ describe("isDefined()", () => {
     expect(isDefined({ a: 1 })).toBe(true);
     expect(isDefined(1)).toBe(true);
     expect(isDefined(/x/)).toBe(true);
-    expect(isDefined("a")).toBe(true);
-    expect(isDefined(Symbol("a"))).toBe(true);
+    expect(isDefined('a')).toBe(true);
+    expect(isDefined(Symbol('a'))).toBe(true);
   });
 });

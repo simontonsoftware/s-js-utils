@@ -1,4 +1,4 @@
-import { createBuilder } from "./create-builder";
+import { createBuilder } from './create-builder';
 
 interface Message {
   id: number;
@@ -16,18 +16,18 @@ const buildMessage = createBuilder<Message, Options>(
   },
 );
 
-describe("createBuilder()", () => {
-  it("assigns the given attributes", () => {
+describe('createBuilder()', () => {
+  it('assigns the given attributes', () => {
     expect(buildMessage({ id: 1234567 }).id).toBe(1234567);
-    expect(buildMessage({ text: "Hello world!" }).text).toBe("Hello world!");
-    expect(buildMessage({ id: 7, text: "eight" })).toEqual({
+    expect(buildMessage({ text: 'Hello world!' }).text).toBe('Hello world!');
+    expect(buildMessage({ id: 7, text: 'eight' })).toEqual({
       id: 7,
-      text: "eight",
+      text: 'eight',
     });
   });
 
-  describe("buildDefaults argument", () => {
-    it("is supplied seq and options", () => {
+  describe('buildDefaults argument', () => {
+    it('is supplied seq and options', () => {
       const build = createBuilder<Message>((seq, options) => ({
         id: seq,
         text: JSON.stringify(options),
@@ -40,21 +40,21 @@ describe("createBuilder()", () => {
     });
   });
 
-  describe("afterBuild argument", () => {
-    it("is not required", () => {
-      const build = createBuilder<Message>(() => ({ id: 1, text: "hi" }));
-      expect(build()).toEqual({ id: 1, text: "hi" });
+  describe('afterBuild argument', () => {
+    it('is not required', () => {
+      const build = createBuilder<Message>(() => ({ id: 1, text: 'hi' }));
+      expect(build()).toEqual({ id: 1, text: 'hi' });
     });
 
-    it("is supplied the object to be returned, seq, and options", () => {
+    it('is supplied the object to be returned, seq, and options', () => {
       const build = createBuilder<Message>(
-        (seq) => ({ id: seq, text: "hi" }),
+        (seq) => ({ id: seq, text: 'hi' }),
         (obj, seq, options) => {
           obj.text = JSON.stringify({ origText: obj.text, seq, options });
         },
       );
 
-      const built = build({ text: "before" }, { opt1: true });
+      const built = build({ text: 'before' }, { opt1: true });
 
       expect(built.text).toEqual(
         `{"origText":"before","seq":${built.id},"options":{"opt1":true}}`,
@@ -62,12 +62,12 @@ describe("createBuilder()", () => {
     });
   });
 
-  describe("resulting builder", () => {
-    it("has only optional parameters", () => {
+  describe('resulting builder', () => {
+    it('has only optional parameters', () => {
       expect(() => buildMessage()).not.toThrow();
     });
 
-    it("accepts partials for both parameters", () => {
+    it('accepts partials for both parameters', () => {
       const build = createBuilder<
         { a: number; b: number },
         { o1: boolean; o2: boolean }

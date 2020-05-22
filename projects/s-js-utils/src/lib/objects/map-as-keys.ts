@@ -1,5 +1,5 @@
-import { ArrayIteratee, Nil, ObjectIteratee } from "../interfaces";
-import { mapToObject } from "./map-to-object";
+import { ArrayIteratee, Nil, ObjectIteratee } from '../interfaces';
+import { mapToObject } from './map-to-object';
 
 /**
  * Maps `collection` to be the keys of a new object, with the values determined by `iteratee`.

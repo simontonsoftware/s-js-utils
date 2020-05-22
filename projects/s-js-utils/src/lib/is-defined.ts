@@ -1,4 +1,4 @@
-import { isUndefined } from "micro-dash";
+import { isUndefined } from 'micro-dash';
 
 /**
  * Checks if `value` is anything other than `undefined`.
