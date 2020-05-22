@@ -13,6 +13,7 @@ import {
   isSuperset,
   mapAsKeys,
   mapToObject,
+  MigrationManager,
   roundToMultipleOf,
   setDifference,
   setIntersection,
@@ -41,6 +42,17 @@ export class AppComponent {
     // just use each function in the library once to prove we can import it
     //
 
+    // functions
+    new Multiplier(2)(3); // uses CallableObject
+    wrapFunction((a: number, b: number) => a + b, {});
+    wrapMethod({ a() {} }, 'a', {});
+
+    // objects
+    createBuilder(() => ({ text: 'hi' }))();
+    isEqualAtDepth(1, 1, 1);
+    mapAsKeys([], identity);
+    mapToObject([], () => ['a', 1]);
+
     // sets
     const set = new Set([]);
     isSetEqual(set, set);
@@ -64,16 +76,10 @@ export class AppComponent {
 
     // root
     assert(true);
-    new Multiplier(2)(3); // uses CallableObject
-    createBuilder(() => ({ text: 'hi' }))();
     isDefined(1);
-    isEqualAtDepth(1, 1, 1);
-    mapAsKeys([], identity);
-    mapToObject([], () => ['a', 1]);
+    new MigrationManager<any>().run.bind(this);
     roundToMultipleOf(2, 0);
     toCsv([['eats shoots and leaves', 'eats, shoots, and leaves']]);
-    wrapFunction((a: number, b: number) => a + b, {});
-    wrapMethod({ a() {} }, 'a', {});
 
     this.title = 's-js-utils-platform';
   }
