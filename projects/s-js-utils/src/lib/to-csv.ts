@@ -1,7 +1,7 @@
 import { toString } from "micro-dash";
 
 /**
- * Converts a 2D array to a csv string. Values are converted using micro-dash's toString().
+ * Converts a 2D array to a csv string. Values are converted using micro-dash's `toString()`.
  *
  * ```ts
  * toCsv([["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]]); // "a,b,c\nd,e,f\ng,h,i"

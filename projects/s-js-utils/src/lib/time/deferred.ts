@@ -1,4 +1,4 @@
-import { wrapFunction } from "../wrap-function";
+import { wrapFunction } from "../functions/wrap-function";
 
 /**
  * An object you can use to create a promise and resolve/reject it later.

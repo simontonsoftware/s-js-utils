@@ -1,5 +1,5 @@
 import { last } from "micro-dash";
-import { mapAsKeys } from "../map-as-keys";
+import { mapAsKeys } from "../objects/map-as-keys";
 import { roundToMultipleOf } from "../round-to-multiple-of";
 
 /**

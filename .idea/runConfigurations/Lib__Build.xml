@@ -1,10 +1,11 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="lib: dtslint" type="js.build_tools.npm">
+  <configuration default="false" name="Lib: Build" type="js.build_tools.npm">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
-      <script value="dtslint" />
+      <script value="build" />
     </scripts>
+    <arguments value="--prod s-js-utils" />
     <node-interpreter value="project" />
     <envs />
     <method v="2" />

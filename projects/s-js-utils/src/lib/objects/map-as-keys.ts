@@ -1,4 +1,4 @@
-import { ArrayIteratee, Nil, ObjectIteratee } from "./interfaces";
+import { ArrayIteratee, Nil, ObjectIteratee } from "../interfaces";
 import { mapToObject } from "./map-to-object";
 
 /**
