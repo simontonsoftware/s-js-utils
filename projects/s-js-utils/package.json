@@ -1,11 +1,8 @@
 {
   "name": "s-js-utils",
-  "version": "6.2.1",
+  "version": "6.3.0",
   "author": "Simonton Software",
   "license": "MIT",
   "repository": "simontonsoftware/s-js-utils",
-  "peerDependencies": {
-    "micro-dash": ">=7.0.0 <8.0.0",
-    "tslib": "^1.10.0"
-  }
+  "peerDependencies": { "micro-dash": ">=7.0.0 <8.0.0", "tslib": "^1.10.0" }
 }

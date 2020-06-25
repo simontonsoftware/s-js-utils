@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.3.0](https://github.com/simontonsoftware/s-js-utils/compare/v6.2.1...v6.3.0) (2020-06-25)
+
+### Features
+
+- add `MigrationManager` ([857e933](https://github.com/simontonsoftware/s-js-utils/commit/857e933d13768291dda677b2e553150f43aad633))
+- add `Persistence`, integrate with `MigrationManager` ([36524df](https://github.com/simontonsoftware/s-js-utils/commit/36524df055f31b594185f427fdd9d0c4d0f623be))
+- improve typing for `isDefined()`. Closes [#15](https://github.com/simontonsoftware/s-js-utils/issues/15). ([c64e79b](https://github.com/simontonsoftware/s-js-utils/commit/c64e79b6451a8e56a415c32b0172cd603887616d))
+
 ### [6.2.1](https://github.com/simontonsoftware/s-js-utils/compare/v6.2.0...v6.2.1) (2020-05-04)
 
 ### Bug Fixes
