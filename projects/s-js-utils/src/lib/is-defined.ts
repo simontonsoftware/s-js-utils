@@ -10,6 +10,6 @@ import { isUndefined } from 'micro-dash';
  * isDefined(undefined); // false
  * ```
  */
-export function isDefined(value: any) {
+export function isDefined<T>(value: T): value is Exclude<T, undefined> {
   return !isUndefined(value);
 }
