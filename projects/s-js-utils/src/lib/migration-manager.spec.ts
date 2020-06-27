@@ -42,7 +42,7 @@ describe('MigrationManager', () => {
         this.registerMigration(1, this.migrateFrom1); // no special binding
       }
 
-      private migrateFrom1(source: MyState) {
+      private migrateFrom1(source: MyState): MyState {
         this.messaging.show("You've been upgraded!"); // you can still use `this`
         return { ...source, _version: 2 };
       }
@@ -174,7 +174,7 @@ describe('MigrationManager', () => {
       persistence.put(new MyData(1));
     });
 
-    function registerAndRun(migrater: MigrationManager<MyData>) {
+    function registerAndRun(migrater: MigrationManager<MyData>): any {
       migrater.registerMigration(1, () => {
         throw originalError;
       });
@@ -202,7 +202,7 @@ describe('MigrationManager', () => {
     it('can provide its own value to be returned from `run()`', () => {
       const newValue = new MyData(2);
       const migrater = new (class extends MigrationManager<MyData> {
-        protected onError() {
+        protected onError(): MyData {
           return newValue;
         }
       })();

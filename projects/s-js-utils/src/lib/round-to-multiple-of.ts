@@ -8,6 +8,6 @@
  * roundToMultiple(0.5, 1.6); // 1.5
  * ```
  */
-export function roundToMultipleOf(multiple: number, value: number) {
+export function roundToMultipleOf(multiple: number, value: number): number {
   return Math.round(value / multiple) * multiple;
 }

@@ -22,14 +22,14 @@ export class Persistence<T> {
   /**
    * Serializes `obj` and saves it in local storage.
    */
-  put(obj: T) {
+  put(obj: T): void {
     localStorage.setItem(this.key, JSON.stringify(obj));
   }
 
   /**
    * Retrieves a deserialized copy of the saved object, or `undefined` if it has not been set.
    */
-  get() {
+  get(): T {
     const savedStr = localStorage.getItem(this.key);
     return savedStr === null ? undefined : JSON.parse(savedStr);
   }
@@ -37,7 +37,7 @@ export class Persistence<T> {
   /**
    * Deletes the saved item from local storage.
    */
-  clear() {
+  clear(): void {
     localStorage.removeItem(this.key);
   }
 }

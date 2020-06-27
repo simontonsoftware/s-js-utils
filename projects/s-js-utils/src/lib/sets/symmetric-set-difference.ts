@@ -7,8 +7,8 @@
  * symmetricSetDifference(setA, setB); // Set [1, 2, 5, 6]
  * ```
  */
-export function symmetricSetDifference<T>(setA: Set<T>, setB: Set<T>) {
-  const difference = new Set(setA);
+export function symmetricSetDifference<T>(setA: Set<T>, setB: Set<T>): Set<T> {
+  const difference = new Set<T>(setA);
   for (const elem of setB) {
     if (difference.has(elem)) {
       difference.delete(elem);

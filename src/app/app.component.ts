@@ -45,7 +45,7 @@ export class AppComponent {
     // functions
     new Multiplier(2)(3); // uses CallableObject
     wrapFunction((a: number, b: number) => a + b, {});
-    wrapMethod({ a() {} }, 'a', {});
+    wrapMethod({ a(): void {} }, 'a', {});
 
     // objects
     createBuilder(() => ({ text: 'hi' }))();

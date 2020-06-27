@@ -22,44 +22,48 @@ describe('wrapFunction()', () => {
     before = jasmine.createSpy();
     around = jasmine
       .createSpy()
-      .and.callFake(function (this: any, orig: Function, ...args: any[]) {
+      .and.callFake(function (
+        this: any,
+        orig: Function,
+        ...args: any[]
+      ): [any, symbol] {
         return [orig.call(aroundContext, aroundArg, ...args), aroundReturn];
       });
     transform = jasmine.createSpy().and.returnValue(transformed);
     after = jasmine.createSpy();
   });
 
-  function expectProperCallToOriginal() {
+  function expectProperCallToOriginal(): void {
     expect(original.calls.first().object).toBe(context);
     expectSingleCallAndReset(original, arg1, arg2);
   }
 
-  function expectProperCallToBefore() {
+  function expectProperCallToBefore(): void {
     expect(before.calls.first().object).toBe(context);
     expectSingleCallAndReset(before, arg1, arg2);
   }
 
-  function expectProperCallToTransform() {
+  function expectProperCallToTransform(): void {
     expect(transform.calls.first().object).toBe(context);
     expectSingleCallAndReset(transform, toReturn, arg1, arg2);
   }
 
-  function expectProperCallToAfter(result: symbol) {
+  function expectProperCallToAfter(result: symbol): void {
     expect(after.calls.first().object).toBe(context);
     expectSingleCallAndReset(after, result, arg1, arg2);
   }
 
-  function expectProperCallToAround() {
+  function expectProperCallToAround(): void {
     expect(around.calls.first().object).toBe(context);
     expectSingleCallAndReset(around, original, arg1, arg2);
   }
 
-  function expectAroundedCallToOriginal() {
+  function expectAroundedCallToOriginal(): void {
     expect(original.calls.first().object).toBe(aroundContext);
     expectSingleCallAndReset(original, aroundArg, arg1, arg2);
   }
 
-  function expectAroundedCallToTransform() {
+  function expectAroundedCallToTransform(): void {
     expect(transform.calls.first().object).toBe(context);
     expectSingleCallAndReset(transform, [toReturn, aroundReturn], arg1, arg2);
   }

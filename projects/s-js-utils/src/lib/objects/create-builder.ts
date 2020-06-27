@@ -31,7 +31,7 @@ let seq = 0;
 export function createBuilder<T, OptionsType = {}>(
   buildDefaults: (seq: number, options: Partial<OptionsType>) => T,
   afterBuild?: (obj: T, seq: number, options: Partial<OptionsType>) => void,
-) {
+): (attributes?: Partial<T>, options?: Partial<OptionsType>) => T {
   return (attributes?: Partial<T>, options: Partial<OptionsType> = {}): T => {
     ++seq;
     const obj = Object.assign(buildDefaults(seq, options), attributes);

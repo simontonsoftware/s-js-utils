@@ -33,7 +33,7 @@ export function wrapMethod<
   object: O,
   key: K,
   hooks: Hooks<Parameters<O[K]>, ReturnType<O[K]>, ThisType<O[K]>>,
-) {
+): () => void {
   const original = object[key];
   object[key] = wrapFunction(original, hooks) as O[K];
   return () => {

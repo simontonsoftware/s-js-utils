@@ -50,9 +50,9 @@ export class MigrationManager<T extends VersionedObject> {
    *
    * If an error is thrown by a migration, see `onError()` for details.
    */
-  run(persistence: Persistence<T>, defaultValue: T) {
-    let object = persistence.get();
-    if (object?.version === defaultValue._version) {
+  run(persistence: Persistence<T>, defaultValue: T): T {
+    let object: T = persistence.get();
+    if (object?._version === defaultValue._version) {
       return object;
     }
 
@@ -74,7 +74,7 @@ export class MigrationManager<T extends VersionedObject> {
    *
    * If you are using `Persistence` you will probably not call this directly; use `.run()` instead.
    */
-  upgrade(object: T, targetVersion: number) {
+  upgrade(object: T, targetVersion: number): T {
     let lastVersion = object._version;
     assert(lastVersion === undefined || lastVersion <= targetVersion);
     while (lastVersion !== targetVersion) {
@@ -119,7 +119,7 @@ export class MigrationManager<T extends VersionedObject> {
   registerMigration(
     sourceVersion: number | undefined,
     migrateFunction: MigrateFunction<T>,
-  ) {
+  ): void {
     this.migrations.set(sourceVersion, migrateFunction.bind(this));
   }
 
@@ -137,7 +137,7 @@ export class MigrationManager<T extends VersionedObject> {
     throw error;
   }
 
-  private upgradeOneStep(upgradable: T, targetVersion: number) {
+  private upgradeOneStep(upgradable: T, targetVersion: number): T {
     const version = upgradable._version;
     const migrationFunction = this.migrations.get(version);
     if (!migrationFunction) {

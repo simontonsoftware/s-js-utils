@@ -105,7 +105,11 @@ const nanoConversions = {
  * convertTime(20, TimeUnit.Decades, TimeUnit.Centuries); // 2
  * ```
  */
-export function convertTime(value: number, unit: string, targetUnit: string) {
+export function convertTime(
+  value: number,
+  unit: string,
+  targetUnit: string,
+): number {
   return (value * nanoConversions[unit]) / nanoConversions[targetUnit];
 }
 
@@ -124,7 +128,7 @@ export function elapsedToString(
   elapsed: number,
   units: string[],
   { elapsedUnit = TimeUnit.Milliseconds, showLeadingZeros = true } = {},
-) {
+): string {
   elapsed = roundToMultipleOf(
     convertTime(1, last(units), elapsedUnit),
     elapsed,
@@ -150,7 +154,7 @@ function getNanoConversions(
   singular: string,
   nanos: number,
   { aliases = [] as string[], plural = singular + 's' } = {},
-) {
+): Record<string, number> {
   return mapAsKeys(
     [
       unit,

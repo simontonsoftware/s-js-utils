@@ -27,12 +27,12 @@ export class Debouncer {
     func: T,
     wait = 0,
     ...args: Parameters<T>
-  ) {
+  ): void {
     this.cancel();
     this.timeoutId = setTimeout(func, wait, ...args);
   }
 
-  cancel() {
+  cancel(): void {
     if (this.timeoutId !== undefined) {
       clearTimeout(this.timeoutId);
     }

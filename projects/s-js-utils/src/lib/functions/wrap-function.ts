@@ -30,7 +30,7 @@ export function wrapFunction<A extends any[], R, T>(
   original: (this: T, ...args: A) => R,
   hooks: Hooks<A, R, T>,
 ): (this: T, ...args: A) => R {
-  const wrapped = function (this: T, ...args: A) {
+  const wrapped = function (this: T, ...args: A): R {
     let result: R;
     callHook(hooks.before, this, args);
     if (hooks.around) {
@@ -52,6 +52,6 @@ function callHook(
   context: any,
   args: any[],
   defaultResult?: any,
-) {
+): any {
   return hook ? hook.apply(context, args) : defaultResult;
 }

@@ -540,7 +540,7 @@ function testAliases(
   otherUnit: TimeUnit,
   otherValue: number,
   ...aliases: string[]
-) {
+): void {
   for (const alias of aliases) {
     expect(convertTime(1, otherUnit, alias)).toBe(otherValue);
     expect(convertTime(otherValue, alias, otherUnit)).toBe(1);

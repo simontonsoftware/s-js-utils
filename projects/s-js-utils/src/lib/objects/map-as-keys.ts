@@ -30,7 +30,7 @@ export function mapAsKeys<T extends Record<keyof T, keyof any>, V>(
   iteratee: ObjectIteratee<T, V>,
 ): { [k in T[keyof T]]: V } | {};
 
-export function mapAsKeys(collection: any, iteratee: any) {
+export function mapAsKeys(collection: any, iteratee: any): any {
   return mapToObject(collection, (value, keyOrIndex) => [
     value,
     iteratee(value, keyOrIndex),

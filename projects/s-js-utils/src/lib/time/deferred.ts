@@ -32,7 +32,7 @@ export class Deferred<T> {
     });
   }
 
-  isPending() {
+  isPending(): boolean {
     return this.pending;
   }
 }

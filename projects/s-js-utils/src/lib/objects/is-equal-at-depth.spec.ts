@@ -1,6 +1,10 @@
 import { isEqualAtDepth } from './is-equal-at-depth';
 
-function expectToBecomeEqualAtDepth(depth: number, value: any, other: any) {
+function expectToBecomeEqualAtDepth(
+  depth: number,
+  value: any,
+  other: any,
+): void {
   let i = 0;
   for (; i < depth; ++i) {
     expect(isEqualAtDepth(i, value, other)).toBe(false);
@@ -9,7 +13,7 @@ function expectToBecomeEqualAtDepth(depth: number, value: any, other: any) {
   expect(isEqualAtDepth(i++, value, other)).toBe(true);
 }
 
-function expectNeverEqual(value: any, other: any) {
+function expectNeverEqual(value: any, other: any): void {
   for (let i = 0; i < 3; ++i) {
     expect(isEqualAtDepth(i, value, other)).toBe(false);
   }
@@ -157,7 +161,7 @@ describe('isEqualAtDepth()', () => {
   it('is `false` for objects with custom `toString` methods', () => {
     let primitive: any;
     const object = {
-      toString() {
+      toString(): any {
         return primitive;
       },
     };

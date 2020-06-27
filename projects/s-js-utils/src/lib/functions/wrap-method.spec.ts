@@ -40,13 +40,13 @@ describe('wrapMethod()', () => {
     const httpGet = jasmine.createSpy();
     const consoleLog = spyOn(console, 'log');
     class HttpClient {
-      get(url: string) {
+      get(url: string): void {
         httpGet(url);
       }
     }
 
     wrapMethod(HttpClient.prototype, 'get', {
-      before(url) {
+      before(url): void {
         console.log('Sending GET request to', url);
       },
     });
@@ -63,7 +63,7 @@ describe('wrapMethod()', () => {
   it('works for the console.error example in the docs', () => {
     const consoleError = spyOn(console, 'error');
     const unwrap = wrapMethod(console, 'error', {
-      around(original, ...args) {
+      around(original, ...args): void {
         if (args[0].message !== 'something benign') {
           original(...args);
         }

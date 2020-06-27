@@ -7,7 +7,7 @@
  * setUnion(setA, setB); // true
  * ```
  */
-export function isSuperset(set: Set<any>, subset: Set<any>) {
+export function isSuperset(set: Set<any>, subset: Set<any>): boolean {
   for (const elem of subset) {
     if (!set.has(elem)) {
       return false;

@@ -7,8 +7,8 @@
  * setUnion(setA, setB); // Set [1, 2, 3, 4, 5, 6]
  * ```
  */
-export function setUnion<T>(setA: Set<T>, setB: Set<T>) {
-  const union = new Set(setA);
+export function setUnion<T>(setA: Set<T>, setB: Set<T>): Set<T> {
+  const union = new Set<T>(setA);
   for (const elem of setB) {
     if (!setA.has(elem)) {
       union.add(elem);

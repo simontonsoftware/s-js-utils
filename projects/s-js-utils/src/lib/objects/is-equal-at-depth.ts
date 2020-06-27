@@ -22,7 +22,7 @@ import { keys } from 'micro-dash';
  * isEqualAtDepth(3, object1, object2); // true
  * ```
  */
-export function isEqualAtDepth(depth: number, value: any, other: any) {
+export function isEqualAtDepth(depth: number, value: any, other: any): boolean {
   if (Object.is(value, other)) {
     // covers e.g. NaN === NaN
     return true;
@@ -34,7 +34,7 @@ export function isEqualAtDepth(depth: number, value: any, other: any) {
 }
 
 /** @hidden */
-function hasSameValues(depth: number, value: any, other: any) {
+function hasSameValues(depth: number, value: any, other: any): boolean {
   for (const key of keys(value)) {
     if (!other.hasOwnProperty(key)) {
       return false;

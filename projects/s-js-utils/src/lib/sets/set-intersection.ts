@@ -7,8 +7,8 @@
  * setIntersection(setA, setB); // Set [3, 4]
  * ```
  */
-export function setIntersection<T>(setA: Set<T>, setB: Set<T>) {
-  const intersection = new Set();
+export function setIntersection<T>(setA: Set<T>, setB: Set<T>): Set<T> {
+  const intersection = new Set<T>();
   for (const elem of setB) {
     if (setA.has(elem)) {
       intersection.add(elem);

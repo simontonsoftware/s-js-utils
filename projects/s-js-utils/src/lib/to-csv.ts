@@ -14,7 +14,7 @@ import { toString } from 'micro-dash';
  * ]) // "a,,string\n,\ntrue,false\n1,2,3\n[object Object],[object Object]"
  * ```
  */
-export function toCsv(content: any[][]) {
+export function toCsv(content: any[][]): string {
   return content
     .map((row) => row.map((cell) => toCellString(cell)).join(','))
     .join('\n');
@@ -26,7 +26,7 @@ const specialCsvCharactersRegexp = /["|,|\n|\r]/;
 const allDoubleQuotes = /"/g;
 
 /** @hidden */
-function toCellString(value: any) {
+function toCellString(value: any): string {
   const str = toString(value);
 
   if (specialCsvCharactersRegexp.test(str)) {
