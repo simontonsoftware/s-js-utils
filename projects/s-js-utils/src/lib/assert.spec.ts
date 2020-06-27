@@ -12,7 +12,7 @@ describe('assert()', () => {
 
   it('does not throw an error when truthy', () => {
     // tslint:disable-next-line:only-arrow-functions
-    const args = (function(..._: any[]) {
+    const args = (function (..._: any[]) {
       return arguments;
     })([1, 2, 3]);
 

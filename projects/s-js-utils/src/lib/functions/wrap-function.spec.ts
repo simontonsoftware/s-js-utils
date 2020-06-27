@@ -22,7 +22,7 @@ describe('wrapFunction()', () => {
     before = jasmine.createSpy();
     around = jasmine
       .createSpy()
-      .and.callFake(function(this: any, orig: Function, ...args: any[]) {
+      .and.callFake(function (this: any, orig: Function, ...args: any[]) {
         return [orig.call(aroundContext, aroundArg, ...args), aroundReturn];
       });
     transform = jasmine.createSpy().and.returnValue(transformed);

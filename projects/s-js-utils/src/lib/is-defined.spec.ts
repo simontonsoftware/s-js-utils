@@ -3,7 +3,7 @@ import { isDefined } from './is-defined';
 describe('isDefined()', () => {
   it('works', () => {
     // tslint:disable-next-line:only-arrow-functions
-    const args = (function(..._: any[]) {
+    const args = (function (..._: any[]) {
       return arguments;
     })([1, 2, 3]);
 
