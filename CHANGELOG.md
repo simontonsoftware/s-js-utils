@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/simontonsoftware/s-js-utils/compare/v6.3.0...v7.0.0) (2020-06-27)
+
+### ⚠ BREAKING CHANGES
+
+- requires micro-dash 2.0
+- uses Typescript 3.9
+
+- upgrade buildchain ([8c97924](https://github.com/simontonsoftware/s-js-utils/commit/8c979246419df07c0a3e69b294663f7bfc3df6a1))
+- upgrade dependencies ([96a34f3](https://github.com/simontonsoftware/s-js-utils/commit/96a34f38db548046dd0620a6fd820a2609f006d7))
+
 ## [6.3.0](https://github.com/simontonsoftware/s-js-utils/compare/v6.2.1...v6.3.0) (2020-06-25)
 
 ### Features

@@ -975,15 +975,15 @@ img { max-width: 100%; }
 				<div class="lead">
 					<p>Get and put objects from/to local storage. They will be (de)serialized as JSON, so be sure that&#39;s OK for your objects.</p>
 				</div>
-				<pre><code class="language-ts"> <span class="hljs-comment">// if 'my key' has never been used before</span>
- <span class="hljs-keyword">const</span> persistence = <span class="hljs-keyword">new</span> Persistence(<span class="hljs-string">'my key'</span>);
+				<pre><code class="language-ts"> <span class="hljs-comment">// if &#x27;my key&#x27; has never been used before</span>
+ <span class="hljs-keyword">const</span> persistence = <span class="hljs-keyword">new</span> Persistence(<span class="hljs-string">&#x27;my key&#x27;</span>);
  persistence.get(); <span class="hljs-comment">// returns `undefined`</span>
 
  <span class="hljs-comment">// now you set it</span>
- persistence.put({ name: <span class="hljs-string">'Robert'</span> });
+ persistence.put({ name: <span class="hljs-string">&#x27;Robert&#x27;</span> });
 
  <span class="hljs-comment">// this will work even after the app reloads (e.g. the next week)</span>
- persistence.get(); <span class="hljs-comment">// returns { name: 'Robert' }</span></code></pre>
+ persistence.get(); <span class="hljs-comment">// returns { name: &#x27;Robert&#x27; }</span></code></pre>
 			</div>
 		</section>
 		<section class="tsd-panel tsd-type-parameters">
@@ -1071,7 +1071,7 @@ img { max-width: 100%; }
 				<a name="get" class="tsd-anchor"></a>
 				<h3>get</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
