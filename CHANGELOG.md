@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.1](https://github.com/simontonsoftware/s-js-utils/compare/v7.0.0...v7.0.1) (2020-09-05)
+
+### Bug Fixes
+
+- Persistence was not exported properly ([5a4af13](https://github.com/simontonsoftware/s-js-utils/commit/5a4af13338adaa4a0faa3359b367d40a3bc31794))
+
 ## [7.0.0](https://github.com/simontonsoftware/s-js-utils/compare/v6.3.0...v7.0.0) (2020-06-27)
 
 ### ⚠ BREAKING CHANGES
