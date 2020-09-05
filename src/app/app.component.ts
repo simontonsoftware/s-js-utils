@@ -14,6 +14,7 @@ import {
   mapAsKeys,
   mapToObject,
   MigrationManager,
+  Persistence,
   roundToMultipleOf,
   setDifference,
   setIntersection,
@@ -78,6 +79,7 @@ export class AppComponent {
     assert(true);
     isDefined(1);
     new MigrationManager<any>().run.bind(this);
+    new Persistence<any>('a key').clear.bind(this);
     roundToMultipleOf(2, 0);
     toCsv([['eats shoots and leaves', 'eats, shoots, and leaves']]);
 
